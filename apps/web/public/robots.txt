@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mattiavalerio.vercel.app/sitemap.xml

@@ -1,0 +1,191 @@
+{
+    "site": {
+        "meta": {
+            "title": "Mattia Valerio",
+            "description": "Full Stack Developer specializzato in backend e cloud development.",
+            "keywords": [
+                "Full Stack",
+                "Backend",
+                ".NET",
+                "React",
+                "Cloud",
+                "Docker",
+                "Portfolio",
+                "Developer",
+                "Web Developer",
+                "Sviluppatore Web",
+                "Mattia Valerio",
+                "Mattia Valerio Portfolio",
+                "Mattia Valerio Developer",
+                "Software Engineer",
+                "Web Development",
+                "DevOps",
+                "C#",
+                "TypeScript",
+                "JavaScript",
+                "SQL",
+                "Blazor",
+                "Next.js",
+                "Azure",
+                "AWS",
+                "CI/CD",
+                "Software Architecture",
+                "Microservices",
+                "REST API",
+                "Scalability",
+                "Performance Optimization",
+                "Clean Code",
+                "Agile",
+                "Scrum",
+                "TDD",
+                "Software Design Patterns"
+            ],
+            "theme": {
+                "mode": "auto",
+                "palette": {
+                    "primary": "#0078D4",
+                    "secondary": "#00B2A9",
+                    "backgroundLight": "#F9FAFB",
+                    "backgroundDark": "#0F172A",
+                    "textLight": "#0F172A",
+                    "textDark": "#E2E8F0"
+                },
+                "font": "Inter"
+            }
+        },
+        "sections": {
+            "hero": {
+                "greeting": "Ciao, sono",
+                "name": "Mattia Valerio",
+                "role": "Full Stack Developer",
+                "subtitle": "Sviluppo soluzioni scalabili e performanti con .NET, React e Docker.",
+                "ctaButtons": [
+                    {
+                        "label": "Contattami",
+                        "href": "#contact",
+                        "variant": "primary"
+                    },
+                    {
+                        "label": "Guarda i miei progetti",
+                        "href": "#projects",
+                        "variant": "secondary"
+                    }
+                ],
+                "profileImage": "/images/profile.png"
+            },
+            "about": {
+                "title": "Chi sono",
+                "text": "Sono uno sviluppatore full stack con una forte passione per il backend e l'architettura software. Mi occupo di sviluppo cloud-ready, API e integrazioni scalabili, con un approccio moderno e orientato alla qualità del codice. Amo progettare soluzioni che uniscono efficienza, chiarezza e automazione."
+            },
+            "skills": {
+                "title": "Competenze",
+                "categories": [
+                    {
+                        "name": "Linguaggi",
+                        "items": [
+                            "C#",
+                            "TypeScript",
+                            "JavaScript",
+                            "HTML",
+                            "CSS",
+                            "SQL"
+                        ]
+                    },
+                    {
+                        "name": "Framework & Librerie",
+                        "items": [
+                            ".NET",
+                            "Blazor",
+                            "React",
+                            "Next.js"
+                        ]
+                    },
+                    {
+                        "name": "Database",
+                        "items": [
+                            "SQL Server",
+                            "PostgreSQL"
+                        ]
+                    },
+                    {
+                        "name": "DevOps & Cloud",
+                        "items": [
+                            "Docker",
+                            "Git",
+                            "CI/CD",
+                            "Azure",
+                            "AWS"
+                        ]
+                    }
+                ]
+            },
+            "projects": {
+                "title": "Progetti",
+                "items": [
+                    {
+                        "name": "Factory Insight",
+                        "description": "Piattaforma di monitoraggio industriale sviluppata in .NET e React, containerizzata con Docker. Progettata per scalabilità e osservabilità cloud.",
+                        "techStack": [
+                            ".NET",
+                            "React",
+                            "Docker",
+                            "SQL Server"
+                        ],
+                        "links": {
+                            "github": "https://github.com/mattiavalerio/factory-insight",
+                            "demo": "https://factoryinsight.example.com"
+                        }
+                    },
+                    {
+                        "name": "Survey Integration API",
+                        "description": "Servizio backend .NET per l'integrazione con l'API di SurveyMonkey. Gestione centralizzata dei sondaggi con DI e clean architecture.",
+                        "techStack": [
+                            ".NET",
+                            "C#",
+                            "REST API"
+                        ],
+                        "links": {
+                            "github": "https://github.com/mattiavalerio/survey-integration-api"
+                        }
+                    },
+                    {
+                        "name": "Portfolio Website",
+                        "description": "Sito personale sviluppato in Next.js e TailwindCSS, responsive e SEO-friendly, con componenti shadcn e animazioni Framer Motion.",
+                        "techStack": [
+                            "Next.js",
+                            "TypeScript",
+                            "TailwindCSS",
+                            "shadcn/ui"
+                        ],
+                        "links": {
+                            "github": "https://github.com/mattiavalerio/portfolio",
+                            "demo": "https://mattiavalerio.vercel.app"
+                        }
+                    }
+                ]
+            },
+            "contact": {
+                "title": "Contatti",
+                "text": "Se vuoi collaborare o discutere di un progetto, scrivimi liberamente.",
+                "links": {
+                    "email": "mailto:mattiavalerio.dev@gmail.com",
+                    "github": "https://github.com/mattiavalerio",
+                    "linkedin": "https://www.linkedin.com/in/mattiavalerio/"
+                }
+            },
+            "footer": {
+                "copyright": "© 2025 Mattia Valerio. Tutti i diritti riservati.",
+                "social": [
+                    {
+                        "name": "GitHub",
+                        "url": "https://github.com/mattiavalerio"
+                    },
+                    {
+                        "name": "LinkedIn",
+                        "url": "https://www.linkedin.com/in/mattiavalerio/"
+                    }
+                ]
+            }
+        }
+    }
+}
