@@ -17,32 +17,28 @@ import { Github, ExternalLink } from "lucide-react";
 
 const projectsData = [
   {
-    name: "Factory Insight",
-    description:
-      "Piattaforma di monitoraggio industriale sviluppata in .NET e React, containerizzata con Docker. Progettata per scalabilità e osservabilità cloud.",
-    techStack: [".NET", "React", "Docker", "SQL Server"],
+    name: "Hyper Broker",
+    description: "Piattaforma di gestione dei conti trading in tempo reale",
+    techStack: ["Next.js", "TypeScript", "TailwindCSS", "React"],
     links: {
-      github: "https://github.com/mattiavalerio/factory-insight",
-      demo: "https://factoryinsight.example.com",
+      demo: "https://hyper-broker.vercel.app/",
     },
   },
   {
-    name: "Survey Integration API",
+    name: "Audix",
     description:
-      "Servizio backend .NET per l'integrazione con l'API di SurveyMonkey. Gestione centralizzata dei sondaggi con DI e clean architecture.",
-    techStack: [".NET", "C#", "REST API"],
+      "Piattaforma di trascrizione istantanea che tramite l'utilizzo dell'AI trasforma note audio in file di testo, sottotitoli, e traduce in oltre 100 lingue in pochi secondi",
+    techStack: ["AI", "Next.js", "TypeScript", "API Integration"],
     links: {
-      github: "https://github.com/mattiavalerio/survey-integration-api",
+      demo: "https://www.audix.dev/",
     },
   },
   {
-    name: "Portfolio Website",
-    description:
-      "Sito personale sviluppato in Next.js e TailwindCSS, responsive e SEO-friendly, con componenti shadcn e animazioni Framer Motion.",
-    techStack: ["Next.js", "TypeScript", "TailwindCSS", "shadcn/ui"],
+    name: "MyFinance",
+    description: "Applicazione web per la gestione delle finanze personali",
+    techStack: ["Next.js", "TypeScript", "React", "TailwindCSS"],
     links: {
-      github: "https://github.com/mattiavalerio/portfolio",
-      demo: "https://mattiavalerio.vercel.app",
+      demo: "https://my-finance-one.vercel.app/",
     },
   },
 ];
@@ -90,19 +86,6 @@ export function Projects() {
                     </div>
                   </CardContent>
                   <CardFooter className="flex gap-2">
-                    {project.links.github && (
-                      <Button size="sm" variant="outline" asChild>
-                        <a
-                          href={project.links.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2"
-                        >
-                          <Github className="h-4 w-4" />
-                          GitHub
-                        </a>
-                      </Button>
-                    )}
                     {project.links.demo && (
                       <Button size="sm" asChild>
                         <a
