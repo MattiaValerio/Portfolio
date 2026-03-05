@@ -57,8 +57,9 @@ export function Navbar() {
 
   const navLinks = [
     { label: "Chi sono", sectionId: "about" },
-    { label: "Competenze", sectionId: "skills" },
-    { label: "Progetti", sectionId: "projects" },
+    { label: "Per chi", sectionId: "audience" },
+    { label: "Pacchetti", sectionId: "offers" },
+    { label: "Soluzioni", sectionId: "advanced" },
     { label: "Servizi", href: "/servizi" },
     { label: "Contatti", sectionId: "contact" },
   ];

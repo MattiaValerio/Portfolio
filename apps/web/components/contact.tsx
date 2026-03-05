@@ -27,8 +27,8 @@ export function Contact() {
             Contatti
           </h2>
           <p className="text-lg text-muted-foreground text-center mb-8">
-            Se vuoi collaborare o discutere di un progetto, scrivimi
-            liberamente.
+            Raccontami la tua attività e ti propongo la soluzione più adatta
+            per migliorare la tua presenza online.
           </p>
 
           <Card className="max-w-2xl mx-auto">

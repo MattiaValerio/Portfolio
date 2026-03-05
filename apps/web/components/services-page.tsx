@@ -102,6 +102,24 @@ const recurringServices = [
   },
 ];
 
+const advancedServices = [
+  {
+    title: "Web App su Misura",
+    description:
+      "Sviluppo applicativi custom per digitalizzare processi aziendali, aree clienti e flussi operativi.",
+  },
+  {
+    title: "Integrazioni Aziendali",
+    description:
+      "Integrazione con API, CRM, gestionali e strumenti di terze parti per centralizzare dati e operazioni.",
+  },
+  {
+    title: "Soluzioni Enterprise-ready",
+    description:
+      "Architetture performanti e scalabili, con attenzione a sicurezza, manutenzione e crescita nel tempo.",
+  },
+];
+
 const processSteps = [
   {
     title: "Analisi iniziale",
@@ -249,6 +267,29 @@ export function ServicesPage() {
                     ))}
                   </ul>
                 </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="advanced" className="py-14 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center">
+            Soluzioni Avanzate
+          </h2>
+          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-10">
+            I pacchetti sito web sono il punto di partenza: posso occuparmi
+            anche di applicativi web complessi per aziende con esigenze più
+            strutturate.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {advancedServices.map((service) => (
+              <Card key={service.title}>
+                <CardHeader>
+                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardDescription>{service.description}</CardDescription>
+                </CardHeader>
               </Card>
             ))}
           </div>

@@ -20,11 +20,11 @@ export function About() {
             Chi sono
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed text-center max-w-3xl mx-auto">
-            Sono uno sviluppatore full stack con una forte passione per il
-            backend e l&apos;architettura software. Mi occupo di sviluppo
-            cloud-ready, API e integrazioni scalabili, con un approccio moderno
-            e orientato alla qualità del codice. Amo progettare soluzioni che
-            uniscono efficienza, chiarezza e automazione.
+            Sono uno sviluppatore web e aiuto aziende locali a migliorare la
+            propria presenza online con siti professionali, veloci e facili da
+            usare. Ogni progetto è pensato per valorizzare i servizi aziendali
+            e facilitare il contatto con nuovi clienti, mantenendo un approccio
+            semplice, moderno e orientato ai risultati.
           </p>
         </motion.div>
       </div>
