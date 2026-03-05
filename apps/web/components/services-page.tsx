@@ -183,10 +183,11 @@ export function ServicesPage() {
               Servizi Digitali per Aziende
             </Badge>
             <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-              Dal sito web agli applicativi aziendali su misura
+              Sviluppo software e soluzioni web a Portogruaro
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Supporto PMI e aziende strutturate con soluzioni digitali che
+              Supporto PMI e aziende strutturate a Portogruaro, Venezia,
+              Pordenone e nel Veneto orientale con soluzioni digitali che
               uniscono presenza online, automazione dei processi e sviluppo di
               piattaforme web evolute.
             </p>

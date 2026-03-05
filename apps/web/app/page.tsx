@@ -13,10 +13,24 @@ import { AdvancedSolutions } from "@/components/advanced-solutions";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "Soluzioni Web per PMI e Aziende",
+  title: "Sviluppo Software a Portogruaro",
   description:
-    "Siti web professionali, web app su misura e integrazioni per digitalizzare processi e aumentare i risultati di business.",
+    "Sviluppo software, applicazioni web e soluzioni digitali per aziende a Portogruaro, Pordenone, Venezia e Veneto.",
   keywords: [
+    "mattia valerio portogruaro",
+    "sviluppatore portogruaro",
+    "sviluppatore web portogruaro",
+    "sviluppo software portogruaro",
+    "software gestionale portogruaro",
+    "applicazioni web portogruaro",
+    "sviluppo software veneto",
+    "sviluppo software venezia",
+    "sviluppo software pordenone",
+    "sviluppatore san donà di piave",
+    "sviluppatore latisana",
+    "sviluppatore caorle",
+    "sviluppatore bibione",
+    "sviluppatore veneto",
     "siti web aziendali",
     "web app custom",
     "sviluppo software aziendale",
@@ -28,9 +42,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Soluzioni Web per PMI e Aziende",
+    title: "Sviluppo Software a Portogruaro",
     description:
-      "Siti web professionali, web app su misura e integrazioni per accelerare la crescita aziendale.",
+      "Applicazioni web e sviluppo software per aziende a Portogruaro e nel Veneto orientale.",
     url: "/",
     type: "website",
   },
@@ -39,20 +53,45 @@ export const metadata: Metadata = {
 export default function Page() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: "Mattia Valerio - Soluzioni Web per Aziende",
-    url: "https://mattiavalerio.dev",
-    areaServed: "IT",
-    serviceType: [
-      "Sviluppo siti web",
-      "Sviluppo applicativi web",
-      "Integrazione API",
-      "Consulenza tecnica",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        name: "Mattia Valerio - Sviluppo Software",
+        url: "https://mattiavalerio.dev",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Portogruaro",
+          addressRegion: "Veneto",
+          postalCode: "30026",
+          addressCountry: "IT",
+        },
+        areaServed: [
+          "Portogruaro",
+          "Pordenone",
+          "San Donà di Piave",
+          "Latisana",
+          "Bibione",
+          "Caorle",
+          "Veneto",
+        ],
+      },
+      {
+        "@type": "ProfessionalService",
+        name: "Mattia Valerio - Soluzioni Web per Aziende",
+        url: "https://mattiavalerio.dev",
+        serviceType: [
+          "Sviluppo software",
+          "Sviluppo siti web",
+          "Sviluppo applicativi web",
+          "Integrazione API",
+          "Consulenza tecnica",
+        ],
+        provider: {
+          "@type": "Person",
+          name: "Mattia Valerio",
+        },
+      },
     ],
-    provider: {
-      "@type": "Person",
-      name: "Mattia Valerio",
-    },
   };
 
   return (

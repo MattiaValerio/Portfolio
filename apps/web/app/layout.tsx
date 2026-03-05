@@ -13,12 +13,24 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://mattiavalerio.dev"),
   title: {
-    default: "Mattia Valerio | Soluzioni Web per Aziende",
+    default: "Sviluppatore Web a Portogruaro | Mattia Valerio",
     template: "%s | Mattia Valerio",
   },
   description:
-    "Sviluppo siti web professionali, applicativi custom e soluzioni digitali scalabili per PMI e aziende strutturate.",
+    "Sviluppo software, siti web professionali e applicazioni web per aziende a Portogruaro, Venezia, Pordenone e Veneto.",
   keywords: [
+    "sviluppo software portogruaro",
+    "sviluppatore web portogruaro",
+    "software gestionale portogruaro",
+    "sviluppo applicazioni veneto",
+    "sviluppo software venezia",
+    "sviluppo software pordenone",
+    "Sviluppatore Portogruaro",
+    "Mattia Valerio Portogruaro",
+    "Sviluppatore web Portogruaro",
+    "Sviluppatore Veneto",
+    "Sviluppatore web Veneto",
+    "Sviluppatore web Venezia",
     "Sviluppo siti web",
     "Applicativi web custom",
     "Soluzioni web aziendali",
@@ -49,6 +61,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/favicon.ico"],
+  },
   robots: {
     index: true,
     follow: true,
@@ -64,9 +85,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "it_IT",
     url: "/",
-    title: "Mattia Valerio | Soluzioni Web Aziendali",
+    title: "Sviluppo Software a Portogruaro",
     description:
-      "Siti web professionali, web app custom e soluzioni digitali per far crescere il business.",
+      "Applicazioni web, siti professionali e soluzioni software per aziende del Veneto orientale.",
     siteName: "Mattia Valerio Portfolio",
     images: [
       {
@@ -79,9 +100,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mattia Valerio | Soluzioni Web Aziendali",
+    title: "Sviluppo Software a Portogruaro | Mattia Valerio",
     description:
-      "Siti web professionali, web app custom e soluzioni digitali scalabili.",
+      "Sviluppo software e applicazioni web per aziende a Portogruaro e in Veneto.",
     images: ["/twitter-image"],
   },
 };

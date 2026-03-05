@@ -20,7 +20,7 @@ export function Hero() {
             Mattia Valerio
           </h1>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 text-foreground">
-            Soluzioni Web per PMI e Aziende Strutturate
+            Soluzioni Web per PMI e Aziende a Portogruaro e in Veneto
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             Realizzo siti professionali e applicativi web su misura per

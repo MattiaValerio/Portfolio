@@ -20,11 +20,12 @@ export function About() {
             Chi sono
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed text-center max-w-3xl mx-auto">
-            Sono uno sviluppatore web e aiuto aziende locali a migliorare la
-            propria presenza online con siti professionali, veloci e facili da
-            usare. Ogni progetto è pensato per valorizzare i servizi aziendali
-            e facilitare il contatto con nuovi clienti, mantenendo un approccio
-            semplice, moderno e orientato ai risultati.
+            Sono uno sviluppatore web a Portogruaro, in Veneto, e aiuto aziende
+            locali a migliorare la propria presenza online con siti
+            professionali, veloci e facili da usare. Ogni progetto è pensato
+            per valorizzare i servizi aziendali e facilitare il contatto con
+            nuovi clienti, mantenendo un approccio semplice, moderno e
+            orientato ai risultati.
           </p>
         </motion.div>
       </div>

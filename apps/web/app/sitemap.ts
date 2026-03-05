@@ -14,5 +14,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: "https://mattiavalerio.dev/sviluppo-software-portogruaro",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: "https://mattiavalerio.dev/applicazioni-web-portogruaro",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
   ];
 }
