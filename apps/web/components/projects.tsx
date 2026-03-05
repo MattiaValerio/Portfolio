@@ -56,8 +56,12 @@ export function Projects() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">
-            Progetti
+            Case Study Applicativi
           </h2>
+          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-10">
+            Alcuni esempi di applicativi web reali sviluppati con approccio
+            orientato a performance, scalabilità e obiettivi di business.
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projectsData.map((project, index) => (
@@ -95,7 +99,7 @@ export function Projects() {
                           className="flex items-center gap-2"
                         >
                           <ExternalLink className="h-4 w-4" />
-                          Demo
+                          Case Study
                         </a>
                       </Button>
                     )}
