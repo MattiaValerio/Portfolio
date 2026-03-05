@@ -43,8 +43,12 @@ export function Skills() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">
-            Competenze
+            Stack Tecnologico
           </h2>
+          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-10">
+            Tecnologie e competenze utilizzate per realizzare soluzioni web
+            affidabili, scalabili e adatte anche a contesti aziendali complessi.
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {skillsData.categories.map((category, categoryIndex) => (

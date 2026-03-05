@@ -180,15 +180,15 @@ export function ServicesPage() {
             transition={{ duration: 0.5 }}
           >
             <Badge variant="outline" className="mb-4">
-              Servizi Web per Aziende Locali
+              Servizi Digitali per Aziende
             </Badge>
             <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-              Siti web moderni, veloci e orientati ai contatti
+              Dal sito web agli applicativi aziendali su misura
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Sviluppo siti professionali per piccole e medie imprese che
-              vogliono migliorare la presenza online e ricevere più richieste
-              da nuovi clienti.
+              Supporto PMI e aziende strutturate con soluzioni digitali che
+              uniscono presenza online, automazione dei processi e sviluppo di
+              piattaforme web evolute.
             </p>
           </motion.div>
         </div>
@@ -197,7 +197,7 @@ export function ServicesPage() {
       <section id="packages" className="py-14 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-center">
-            Pacchetti
+            Pacchetti Sito Web
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {packages.map((pack, index) => (
@@ -347,8 +347,8 @@ export function ServicesPage() {
             Richiedi una consulenza
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Valutiamo insieme lo stato attuale della tua presenza online e la
-            soluzione più adatta alla tua attività.
+            Valutiamo insieme se per la tua azienda è più adatto un sito
+            professionale, una piattaforma web custom o una soluzione ibrida.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" asChild>

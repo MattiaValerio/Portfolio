@@ -20,11 +20,12 @@ export function Hero() {
             Mattia Valerio
           </h1>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 text-foreground">
-            Sviluppo Siti Web per Aziende Locali
+            Soluzioni Web per PMI e Aziende Strutturate
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            Realizzo siti moderni, veloci e ottimizzati per aiutarti a ricevere
-            più contatti e presentare al meglio la tua attività online.
+            Realizzo siti professionali e applicativi web su misura per
+            supportare crescita, automazione dei processi e nuovi obiettivi di
+            business.
           </p>
         </motion.div>
 
@@ -42,7 +43,7 @@ export function Hero() {
             </a>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <a href="/servizi">Vedi i servizi</a>
+            <a href="/servizi">Scopri servizi e soluzioni</a>
           </Button>
         </motion.div>
       </div>

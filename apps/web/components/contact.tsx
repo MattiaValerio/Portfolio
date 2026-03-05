@@ -27,8 +27,9 @@ export function Contact() {
             Contatti
           </h2>
           <p className="text-lg text-muted-foreground text-center mb-8">
-            Raccontami la tua attività e ti propongo la soluzione più adatta
-            per migliorare la tua presenza online.
+            Raccontami il tuo obiettivo: dal sito professionale all'applicativo
+            web complesso, troviamo insieme la soluzione più adatta al tuo
+            business.
           </p>
 
           <Card className="max-w-2xl mx-auto">

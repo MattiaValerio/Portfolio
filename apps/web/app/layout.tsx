@@ -11,24 +11,26 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Mattia Valerio | Full Stack Developer",
+  metadataBase: new URL("https://mattiavalerio.dev"),
+  title: {
+    default: "Mattia Valerio | Soluzioni Web per Aziende",
+    template: "%s | Mattia Valerio",
+  },
   description:
-    "Full Stack Developer specializzato in backend e cloud development. Sviluppo soluzioni scalabili e performanti con .NET, React e Docker.",
+    "Sviluppo siti web professionali, applicativi custom e soluzioni digitali scalabili per PMI e aziende strutturate.",
   keywords: [
-    "Full Stack",
-    "Backend",
-    ".NET",
-    "React",
-    "Cloud",
-    "Docker",
-    "Portfolio",
-    "Developer",
-    "Web Developer",
-    "Sviluppatore Web",
+    "Sviluppo siti web",
+    "Applicativi web custom",
+    "Soluzioni web aziendali",
+    "Web app",
+    "Integrazione API",
+    "Automazione processi",
+    "Consulenza digitale",
+    "Sviluppatore web",
     "Mattia Valerio",
-    "Software Engineer",
-    "Web Development",
-    "DevOps",
+    "Software engineering",
+    "Web development",
+    "Digital transformation",
     "C#",
     "TypeScript",
     "JavaScript",
@@ -44,20 +46,43 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Mattia Valerio" }],
   creator: "Mattia Valerio",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "it_IT",
-    url: "https://mattiavalerio.vercel.app",
-    title: "Mattia Valerio | Full Stack Developer",
+    url: "/",
+    title: "Mattia Valerio | Soluzioni Web Aziendali",
     description:
-      "Full Stack Developer specializzato in backend e cloud development.",
+      "Siti web professionali, web app custom e soluzioni digitali per far crescere il business.",
     siteName: "Mattia Valerio Portfolio",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Mattia Valerio - Soluzioni Web per Aziende",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mattia Valerio | Full Stack Developer",
+    title: "Mattia Valerio | Soluzioni Web Aziendali",
     description:
-      "Full Stack Developer specializzato in backend e cloud development.",
+      "Siti web professionali, web app custom e soluzioni digitali scalabili.",
+    images: ["/twitter-image"],
   },
 };
 
