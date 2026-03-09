@@ -25,7 +25,7 @@ const packages = [
       "Presentazione azienda, servizi e contatti",
       "Pulsante WhatsApp e modulo contatti email",
       "Google Maps, SEO base e ottimizzazione mobile",
-      "Configurazione dominio e hosting",
+      "Configurazione iniziale dominio e hosting",
       "1 revisione inclusa",
     ],
   },
@@ -55,13 +55,22 @@ const packages = [
       "Sistema per aggiornare contenuti",
       "News/articoli e portfolio dinamico",
       "Supporto multilingua IT/EN",
-      "Call di analisi e strategia contenuti (1h)",
       "3 revisioni incluse",
     ],
   },
 ];
 
 const recurringServices = [
+  {
+    name: "Gestione Completa Sito + Hosting",
+    price: "su preventivo",
+    items: [
+      "Hosting incluso e gestione tecnica centralizzata",
+      "Monitoraggio, backup e aggiornamenti continuativi",
+      "Gestione contenuti e supporto operativo",
+      "Un unico referente per sito, pubblicazione e continuita del servizio",
+    ],
+  },
   {
     name: "Manutenzione Tecnica",
     price: "39€/mese",
@@ -146,7 +155,7 @@ const faqs = [
   {
     question: "Il dominio e l'hosting sono inclusi?",
     answer:
-      "Posso occuparmi della configurazione completa. I costi del provider restano a carico del cliente.",
+      "Sì: oltre alla configurazione iniziale, posso gestire anche il sito in modo completo con hosting incluso, manutenzione e supporto continuativo tramite servizio ricorrente.",
   },
   {
     question: "Posso aggiornare il sito da solo?",
@@ -246,8 +255,13 @@ export function ServicesPage() {
             Servizi Ricorrenti
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {recurringServices.map((service) => (
-              <Card key={service.name}>
+            {recurringServices.map((service, index) => (
+              <Card
+                key={service.name}
+                className={
+                  index === recurringServices.length - 1 ? "md:col-span-2" : ""
+                }
+              >
                 <CardHeader>
                   <div className="flex items-center justify-between gap-3">
                     <CardTitle className="text-xl">{service.name}</CardTitle>
@@ -278,6 +292,10 @@ export function ServicesPage() {
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center">
             Soluzioni Avanzate
           </h2>
+          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-10">
+            Oltre alla realizzazione iniziale, e disponibile anche la gestione
+            completa del sito con hosting incluso, manutenzione e supporto.
+          </p>
           <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-10">
             I pacchetti sito web sono il punto di partenza: posso occuparmi
             anche di applicativi web complessi per aziende con esigenze più

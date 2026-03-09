@@ -49,6 +49,8 @@ export function ServicesPreview() {
           <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-10">
             Scegli la soluzione più adatta alla tua attività. Ogni pacchetto è
             pensato per un sito veloce, mobile-friendly e orientato ai contatti.
+            E se preferisci delegare tutto, è disponibile anche la gestione
+            completa del sito con hosting incluso.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">

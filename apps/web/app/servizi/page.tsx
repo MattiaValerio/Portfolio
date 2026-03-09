@@ -8,7 +8,7 @@ export const revalidate = 86400;
 export const metadata: Metadata = {
   title: "Servizi Web e Software a Portogruaro",
   description:
-    "Pacchetti sito web, servizi ricorrenti e sviluppo software per aziende a Portogruaro, Venezia, Pordenone e Veneto.",
+    "Pacchetti sito web, gestione completa del sito con hosting incluso, servizi ricorrenti e sviluppo software per aziende a Portogruaro, Venezia, Pordenone e Veneto.",
   keywords: [
     "servizi web portogruaro",
     "sviluppo software portogruaro",
@@ -22,6 +22,8 @@ export const metadata: Metadata = {
     "applicativi web su misura",
     "servizi digitali aziendali",
     "SEO locale",
+    "gestione sito web",
+    "hosting sito web",
     "manutenzione sito web",
   ],
   alternates: {
@@ -58,6 +60,7 @@ export default function ServiziPage() {
     ],
     serviceType: [
       "Sviluppo siti web",
+      "Gestione completa sito web con hosting",
       "Sviluppo applicativi web complessi",
       "Integrazioni API",
       "Manutenzione tecnica e SEO base",
