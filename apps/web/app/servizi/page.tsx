@@ -60,7 +60,7 @@ export default function ServiziPage() {
       "Sviluppo siti web",
       "Sviluppo applicativi web complessi",
       "Integrazioni API",
-      "Manutenzione e SEO",
+      "Manutenzione tecnica e SEO base",
     ],
   };
 

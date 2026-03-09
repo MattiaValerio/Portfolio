@@ -11,8 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@workspace/ui/components/card";
-import { Separator } from "@workspace/ui/components/separator";
-import { ArrowRight, Check, Mail } from "lucide-react";
+import { Check, Mail } from "lucide-react";
 
 const packages = [
   {
@@ -40,7 +39,7 @@ const packages = [
       "Tutto del pacchetto START",
       "Sito multipagina fino a 5 pagine",
       "Struttura: Home, Chi siamo, Servizi, Portfolio, Contatti",
-      "SEO migliorata e Google Analytics",
+      "Integrazione strumenti di analisi base",
       "Ottimizzazione performance",
       "2 revisioni incluse",
     ],
@@ -50,13 +49,13 @@ const packages = [
     price: "1090€",
     timeline: "7–10 giorni lavorativi",
     description:
-      "Per aziende che vogliono usare il sito come vero strumento di marketing.",
+      "Per aziende che vogliono un sito piu evoluto, con contenuti dinamici e una struttura piu flessibile.",
     features: [
       "Tutto del pacchetto BUSINESS",
       "Sistema per aggiornare contenuti",
       "News/articoli e portfolio dinamico",
-      "Integrazione newsletter e supporto multilingua IT/EN",
-      "Consulenza marketing iniziale (1h)",
+      "Supporto multilingua IT/EN",
+      "Call di analisi e strategia contenuti (1h)",
       "3 revisioni incluse",
     ],
   },
@@ -86,18 +85,18 @@ const recurringServices = [
     name: "SEO Locale",
     price: "79€/mese",
     items: [
-      "Ottimizzazione pagine esistenti",
-      "Miglioramento posizionamento locale su Google",
-      "Monitoraggio parole chiave e report periodico",
+      "Revisione e ottimizzazione pagine esistenti",
+      "Miglioramento struttura per il posizionamento locale",
+      "Aggiornamento meta e contenuti SEO-friendly",
     ],
   },
   {
-    name: "Gestione Newsletter",
+    name: "Supporto Tecnico Prioritario",
     price: "69€/mese",
     items: [
-      "Configurazione piattaforma email marketing",
-      "Creazione template newsletter",
-      "Invio di una comunicazione mensile",
+      "Risposta garantita entro 24h",
+      "Interventi urgenti su sito o funzionalita",
+      "Piccole implementazioni tecniche",
     ],
   },
 ];
