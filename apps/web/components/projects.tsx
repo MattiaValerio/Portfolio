@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
@@ -13,35 +14,8 @@ import {
 } from "@workspace/ui/components/card";
 import { Badge } from "@workspace/ui/components/badge";
 import { Button } from "@workspace/ui/components/button";
-import { Github, ExternalLink } from "lucide-react";
-
-const projectsData = [
-  {
-    name: "Hyper Broker",
-    description: "Piattaforma di gestione dei conti trading in tempo reale",
-    techStack: ["Next.js", "TypeScript", "TailwindCSS", "React"],
-    links: {
-      demo: "https://hyper-broker.vercel.app/",
-    },
-  },
-  {
-    name: "Audix",
-    description:
-      "Piattaforma di trascrizione istantanea che tramite l'utilizzo dell'AI trasforma note audio in file di testo, sottotitoli, e traduce in oltre 100 lingue in pochi secondi",
-    techStack: ["AI", "Next.js", "TypeScript", "API Integration"],
-    links: {
-      demo: "https://www.audix.dev/",
-    },
-  },
-  {
-    name: "MyFinance",
-    description: "Applicazione web per la gestione delle finanze personali",
-    techStack: ["Next.js", "TypeScript", "React", "TailwindCSS"],
-    links: {
-      demo: "https://my-finance-one.vercel.app/",
-    },
-  },
-];
+import { ArrowRight, ExternalLink } from "lucide-react";
+import { projectsData } from "@/lib/projects-data";
 
 export function Projects() {
   const ref = useRef(null);
@@ -74,8 +48,24 @@ export function Projects() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card className="h-full flex flex-col hover:shadow-lg transition-shadow">
+                  <div
+                    className="px-6 py-4 border-b"
+                    style={{
+                      background: `linear-gradient(135deg, ${project.palette.from}, ${project.palette.to})`,
+                    }}
+                  >
+                    <p className="text-xs uppercase tracking-[0.2em] text-white/70 mb-2">
+                      {project.category}
+                    </p>
+                    <p className="text-lg font-semibold text-white">
+                      {project.headline}
+                    </p>
+                  </div>
                   <CardHeader>
-                    <CardTitle className="text-xl">{project.name}</CardTitle>
+                    <div className="flex items-center justify-between gap-3">
+                      <CardTitle className="text-xl">{project.name}</CardTitle>
+                      <Badge variant="outline">{project.year}</Badge>
+                    </div>
                   </CardHeader>
                   <CardContent className="flex-grow">
                     <CardDescription className="text-sm mb-4">
@@ -107,6 +97,15 @@ export function Projects() {
                 </Card>
               </motion.div>
             ))}
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/lavori" className="group">
+                Vedi tutti i lavori
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
           </div>
         </motion.div>
       </div>

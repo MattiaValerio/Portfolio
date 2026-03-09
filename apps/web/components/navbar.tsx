@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Button } from "@workspace/ui/components/button";
 import { Moon, Sun, Menu, X } from "lucide-react";
@@ -60,6 +61,7 @@ export function Navbar() {
     { label: "Per chi", sectionId: "audience" },
     { label: "Pacchetti", sectionId: "offers" },
     { label: "Soluzioni", sectionId: "advanced" },
+    { label: "Lavori", href: "/lavori" },
     { label: "Servizi", href: "/servizi" },
     { label: "Contatti", sectionId: "contact" },
   ];
@@ -90,20 +92,20 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <a href="/" className="text-xl font-bold">
+          <Link href="/" className="text-xl font-bold">
             MV
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={getHref(link)}
                 className="text-sm font-medium hover:text-primary transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -156,18 +158,21 @@ export function Navbar() {
               >
                 <div className="flex flex-col gap-1">
                   {navLinks.map((link, index) => (
-                    <motion.a
+                    <motion.div
                       key={link.label}
-                      href={getHref(link)}
-                      onClick={handleLinkClick}
-                      className="text-base font-medium py-3 border-b hover:text-primary transition-colors"
                       initial={{ opacity: 0, y: -6 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -4 }}
                       transition={{ duration: 0.18, delay: index * 0.04 }}
                     >
-                      {link.label}
-                    </motion.a>
+                      <Link
+                        href={getHref(link)}
+                        onClick={handleLinkClick}
+                        className="block text-base font-medium py-3 border-b hover:text-primary transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>
