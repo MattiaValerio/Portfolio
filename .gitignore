@@ -35,7 +35,7 @@ npm-debug.log*
 .DS_Store
 *.pem
 
-.vscode
-.claude 
+.vscode/
+.claude/
 
-docs
+docs/
