@@ -165,7 +165,12 @@ const faqs = [
   {
     question: "Il dominio e l'hosting sono inclusi?",
     answer:
-      "Sì: oltre alla configurazione iniziale, posso gestire anche il sito in modo completo con hosting incluso, manutenzione e supporto continuativo tramite servizio ricorrente.",
+      "L'hosting è un servizio separato a 15€/mese, obbligatorio per tutti i siti pubblicati sul VPS. Se non disponi di un dominio, ci penso io.",
+  },
+  {
+    question: "Quanto costa l'hosting?",
+    answer:
+      "Per siti standard parte da 15€/mese, con DB incluso. Per applicazioni con database personalizzato e architettura su misura, il costo è su preventivo.",
   },
   {
     question: "Posso aggiornare il sito da solo?",
