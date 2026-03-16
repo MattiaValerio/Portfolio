@@ -46,7 +46,7 @@ const packages = [
   },
   {
     name: "PRO",
-    price: "1090€",
+    price: "1290€",
     timeline: "7–10 giorni lavorativi",
     description:
       "Per aziende che vogliono un sito piu evoluto, con contenuti dinamici e una struttura piu flessibile.",
