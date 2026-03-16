@@ -26,7 +26,7 @@ const packages = [
   },
   {
     name: "PRO",
-    price: "1090€",
+    price: "1290€",
     description: "Soluzione avanzata con contenuti dinamici e funzionalità personalizzate.",
   },
 ];
