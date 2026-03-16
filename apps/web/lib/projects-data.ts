@@ -50,7 +50,7 @@ export const projectsData: ProjectItem[] = [
       glow: "rgba(59, 130, 246, 0.24)",
     },
     links: {
-      demo: "https://hyper-broker.vercel.app/",
+      demo: "https://hyper-broker.com/",
     },
   },
   {
