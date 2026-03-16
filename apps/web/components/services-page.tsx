@@ -241,6 +241,9 @@ export function ServicesPage() {
                         </li>
                       ))}
                     </ul>
+                    <p className="text-xs text-muted-foreground mt-3 pt-3 border-t">
+                      Hosting: 15€/mese
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
