@@ -273,7 +273,7 @@ export function ServicesPage() {
             Servizi Ricorrenti
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {recurringServices.map((service, index) => (
+            {recurringServices.map((service) => (
               <Card key={service.name}>
                 <CardHeader>
                   <div className="flex items-center justify-between gap-3">
