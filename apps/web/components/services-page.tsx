@@ -62,18 +62,18 @@ const packages = [
 
 const recurringServices = [
   {
-    name: "Gestione Completa Sito + Hosting",
-    price: "su preventivo",
+    name: "Hosting",
+    price: "15€/mese",
     items: [
-      "Hosting incluso e gestione tecnica centralizzata",
-      "Monitoraggio, backup e aggiornamenti continuativi",
-      "Gestione contenuti e supporto operativo",
-      "Un unico referente per sito, pubblicazione e continuita del servizio",
+      "Hosting sito sul VPS dedicato",
+      "DB incluso per siti standard",
+      "Incluso per tutti i siti pubblicati sul VPS",
+      "Per applicazioni con DB personalizzato: su preventivo",
     ],
   },
   {
     name: "Manutenzione Tecnica",
-    price: "39€/mese",
+    price: "49€/mese",
     items: [
       "Monitoraggio sito e backup periodici",
       "Aggiornamenti tecnici",
@@ -92,7 +92,7 @@ const recurringServices = [
   },
   {
     name: "SEO Locale",
-    price: "79€/mese",
+    price: "129€/mese",
     items: [
       "Revisione e ottimizzazione pagine esistenti",
       "Miglioramento struttura per il posizionamento locale",
@@ -106,6 +106,16 @@ const recurringServices = [
       "Risposta garantita entro 24h",
       "Interventi urgenti su sito o funzionalita",
       "Piccole implementazioni tecniche",
+    ],
+  },
+  {
+    name: "Gestione Completa Sito + Hosting",
+    price: "su preventivo",
+    items: [
+      "Hosting incluso e gestione tecnica centralizzata",
+      "Monitoraggio, backup e aggiornamenti continuativi",
+      "Gestione contenuti e supporto operativo",
+      "Un unico referente per sito, pubblicazione e continuita del servizio",
     ],
   },
 ];
@@ -259,12 +269,7 @@ export function ServicesPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {recurringServices.map((service, index) => (
-              <Card
-                key={service.name}
-                className={
-                  index === recurringServices.length - 1 ? "md:col-span-2" : ""
-                }
-              >
+              <Card key={service.name}>
                 <CardHeader>
                   <div className="flex items-center justify-between gap-3">
                     <CardTitle className="text-xl">{service.name}</CardTitle>
