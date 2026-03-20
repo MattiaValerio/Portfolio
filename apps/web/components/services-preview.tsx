@@ -2,7 +2,6 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Badge } from "@workspace/ui/components/badge";
 import { Button } from "@workspace/ui/components/button";
 import {
   Card,
@@ -11,22 +10,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@workspace/ui/components/card";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 
 const packages = [
   {
     name: "START",
-    price: "590€",
     description: "One-page professionale per iniziare con la giusta presenza online.",
   },
   {
     name: "BUSINESS",
-    price: "790€",
     description: "Sito multipagina per presentare servizi, attività e lavori in modo completo.",
   },
   {
     name: "PRO",
-    price: "1290€",
     description: "Soluzione avanzata con contenuti dinamici e funzionalità personalizzate.",
   },
 ];
@@ -44,7 +40,7 @@ export function ServicesPreview() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center">
-            Pacchetti da 590€
+            Pacchetti Sito Web
           </h2>
           <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-10">
             Scegli la soluzione più adatta alla tua attività. Ogni pacchetto è
@@ -67,7 +63,12 @@ export function ServicesPreview() {
                   <CardHeader>
                     <div className="flex items-center justify-between gap-3">
                       <CardTitle>{pack.name}</CardTitle>
-                      <Badge>{pack.price}</Badge>
+                      <Button size="sm" asChild>
+                        <a href="mailto:mattiavalerio.dev@gmail.com">
+                          <Mail className="mr-1.5 h-3.5 w-3.5" />
+                          Contattami
+                        </a>
+                      </Button>
                     </div>
                     <CardDescription>{pack.description}</CardDescription>
                   </CardHeader>

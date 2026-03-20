@@ -16,7 +16,6 @@ import { Check, Mail } from "lucide-react";
 const packages = [
   {
     name: "START",
-    price: "590€",
     timeline: "3–5 giorni lavorativi",
     description:
       "Ideale per attività che vogliono una presenza online semplice ma professionale.",
@@ -31,7 +30,6 @@ const packages = [
   },
   {
     name: "BUSINESS",
-    price: "790€",
     timeline: "5–7 giorni lavorativi",
     description:
       "Pensato per aziende che vogliono presentare meglio i propri servizi.",
@@ -46,7 +44,6 @@ const packages = [
   },
   {
     name: "PRO",
-    price: "1290€",
     timeline: "7–10 giorni lavorativi",
     description:
       "Per aziende che vogliono un sito piu evoluto, con contenuti dinamici e una struttura piu flessibile.",
@@ -63,7 +60,6 @@ const packages = [
 const recurringServices = [
   {
     name: "Hosting",
-    price: "15€/mese",
     items: [
       "Hosting sito sul VPS dedicato",
       "DB incluso per siti standard",
@@ -73,7 +69,6 @@ const recurringServices = [
   },
   {
     name: "Manutenzione Tecnica",
-    price: "49€/mese",
     items: [
       "Monitoraggio sito e backup periodici",
       "Aggiornamenti tecnici",
@@ -83,7 +78,6 @@ const recurringServices = [
   },
   {
     name: "Aggiornamento Contenuti",
-    price: "59€/mese",
     items: [
       "Aggiornamento testi e immagini",
       "Inserimento nuovi lavori o servizi",
@@ -92,7 +86,6 @@ const recurringServices = [
   },
   {
     name: "SEO Locale",
-    price: "129€/mese",
     items: [
       "Revisione e ottimizzazione pagine esistenti",
       "Miglioramento struttura per il posizionamento locale",
@@ -101,7 +94,6 @@ const recurringServices = [
   },
   {
     name: "Supporto Tecnico Prioritario",
-    price: "69€/mese",
     items: [
       "Risposta garantita entro 24h",
       "Interventi urgenti su sito o funzionalita",
@@ -110,7 +102,6 @@ const recurringServices = [
   },
   {
     name: "Gestione Completa Sito + Hosting",
-    price: "su preventivo",
     items: [
       "Hosting incluso e gestione tecnica centralizzata",
       "Monitoraggio, backup e aggiornamenti continuativi",
@@ -237,7 +228,12 @@ export function ServicesPage() {
                   <CardHeader>
                     <div className="flex items-center justify-between gap-3">
                       <CardTitle>{pack.name}</CardTitle>
-                      <Badge>{pack.price}</Badge>
+                      <Button size="sm" asChild>
+                        <a href="mailto:mattiavalerio.dev@gmail.com">
+                          <Mail className="mr-1.5 h-3.5 w-3.5" />
+                          Contattami
+                        </a>
+                      </Button>
                     </div>
                     <CardDescription>{pack.description}</CardDescription>
                     <p className="text-sm text-muted-foreground">
@@ -256,9 +252,6 @@ export function ServicesPage() {
                         </li>
                       ))}
                     </ul>
-                    <p className="text-xs text-muted-foreground mt-3 pt-3 border-t">
-                      Hosting: 15€/mese
-                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -278,7 +271,12 @@ export function ServicesPage() {
                 <CardHeader>
                   <div className="flex items-center justify-between gap-3">
                     <CardTitle className="text-xl">{service.name}</CardTitle>
-                    <Badge variant="secondary">{service.price}</Badge>
+                    <Button size="sm" asChild>
+                      <a href="mailto:mattiavalerio.dev@gmail.com">
+                        <Mail className="mr-1.5 h-3.5 w-3.5" />
+                        Contattami
+                      </a>
+                    </Button>
                   </div>
                 </CardHeader>
                 <CardContent>
