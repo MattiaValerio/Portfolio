@@ -154,7 +154,7 @@ export function ServicesPage() {
 
           {/* Recurring */}
           <Sublabel>Servizi Ricorrenti</Sublabel>
-          <div className="reveal rec-grid-sp" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 1, background: "rgba(255,255,255,0.07)" }}>
+          <div className="reveal rec-grid-sp" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 1, background: "rgba(255,255,255,0.07)" }}>
             {recurringServices.map((r) => (
               <div key={r.name} style={{ background: "var(--mv-bg)", padding: "28px 24px", transition: "background 0.2s" }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = "#0d0d18"; }}
@@ -224,8 +224,12 @@ export function ServicesPage() {
       </section>
 
       <style>{`
+        @media (max-width: 1200px) {
+          .rec-grid-sp { grid-template-columns: repeat(2, 1fr) !important; }
+        }
         @media (max-width: 860px) {
           .pkg-grid-sp, .adv-grid-sp { grid-template-columns: 1fr !important; }
+          .rec-grid-sp { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </main>

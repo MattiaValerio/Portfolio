@@ -77,7 +77,7 @@ export function Navbar() {
         {/* Hamburger */}
         <button
           className="nav-hamburger"
-          style={{ background: "none", border: "none", cursor: "pointer", padding: 8, display: "flex", flexDirection: "column", gap: 5, flexShrink: 0 }}
+          style={{ background: "none", border: "none", cursor: "pointer", padding: 8, flexDirection: "column", gap: 5, flexShrink: 0 }}
           onClick={() => setMobileOpen((o) => !o)}
           aria-label={mobileOpen ? "Chiudi menu" : "Apri menu"}
         >

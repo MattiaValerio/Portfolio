@@ -35,15 +35,15 @@ export const projectsData: ProjectItem[] = [
     category: "Fintech Platform",
     year: "2026",
     headline: "Dashboard operative per conti trading e flussi realtime.",
-    description: "Piattaforma di gestione dei conti trading in tempo reale.",
+    description: "Piattaforma di gestione dei conti trading in tempo reale, pensata per monitorare posizioni, performance e attività operative con rapidità.",
     highlights: [
-      "Vista centralizzata su conti, movimenti e operativita.",
-      "Interfaccia pensata per consultazione rapida e decisioni veloci.",
-      "Architettura frontend moderna pronta a evolvere con nuove integrazioni.",
+      "Vista centralizzata su conti, movimenti e operatività trading.",
+      "Monitoraggio realtime dei flussi e supporto alle decisioni in pochi secondi.",
+      "Architettura frontend scalabile, pronta per nuove integrazioni e report avanzati.",
     ],
     impact: {
       label: "Focus",
-      value: "Controllo realtime",
+      value: "Controllo operativo",
     },
     techStack: ["Next.js", "TypeScript", "TailwindCSS", "React"],
     palette: {
@@ -62,15 +62,15 @@ export const projectsData: ProjectItem[] = [
     year: "2025",
     headline: "Audio, testo e traduzione in un workflow unico assistito da AI.",
     description:
-      "Piattaforma di trascrizione istantanea che usa AI per trasformare note audio in testo, sottotitoli e traduzioni in oltre 100 lingue.",
+      "Piattaforma di trascrizione e traduzione automatica che converte audio in testo, sottotitoli e versioni multilingua per contenuti digitali.",
     highlights: [
-      "Trascrizione rapida di note vocali e file audio.",
-      "Output in testo, sottotitoli e contenuti tradotti.",
-      "Esperienza orientata a ridurre tempi operativi su contenuti multilingua.",
+      "Trascrizione immediata di note vocali e file audio con qualità elevata.",
+      "Generazione automatica di sottotitoli, traduzioni e versioni pronte per pubblicazione.",
+      "Interfaccia orientata a ridurre i tempi di produzione di contenuti multilingua.",
     ],
     impact: {
       label: "Focus",
-      value: "Automazione contenuti",
+      value: "Efficienza contenuti",
     },
     techStack: ["AI", "Next.js", "TypeScript", "API Integration"],
     palette: {
@@ -83,20 +83,47 @@ export const projectsData: ProjectItem[] = [
     },
   },
   {
+    slug: "timbry",
+    name: "Timbry",
+    category: "Fidelity App",
+    year: "2026",
+    headline: "Tessera fedeltà digitale via QR per negozi locali e attività commerciali.",
+    description:
+      "PWA che sostituisce le tessere cartacee: un cliente mostra il QR, il negozio timbra digitalmente e il premio viene gestito automaticamente.",
+    highlights: [
+      "Fidelizzazione dei clienti senza costi di stampa e senza hardware aggiuntivo.",
+      "Dashboard semplice per gestire timbri, premi, statistiche e campagne di retention.",
+      "Onboarding rapido per bar, negozi retail, beauty e servizi locali con kit di comunicazione fisica incluso.",
+    ],
+    impact: {
+      label: "Focus",
+      value: "Fedeltà digitale",
+    },
+    techStack: ["Next.js", "TypeScript", "PWA", "API Integration"],
+    palette: {
+      from: "#f97316",
+      to: "#0f172a",
+      glow: "rgba(249, 115, 22, 0.22)",
+    },
+    links: {
+      demo: "https://timbry.app/",
+    },
+  },
+  {
     slug: "myfinance",
     name: "MyFinance",
     category: "Personal Finance",
     year: "2025",
     headline: "Monitoraggio spese e finanze personali con UX chiara e diretta.",
-    description: "Applicazione web per la gestione delle finanze personali.",
+    description: "Applicazione web per organizzare budget, categorie di spesa e visualizzare subito la salute finanziaria personale.",
     highlights: [
-      "Organizzazione chiara di entrate, uscite e abitudini di spesa.",
-      "Approccio prodotto centrato su semplicita e lettura immediata dei dati.",
-      "Base solida per estensioni future e funzionalita di reporting.",
+      "Panoramica immediata di entrate, uscite e tendenze di spesa.",
+      "Strumenti pensati per assumere decisioni finanziarie più consapevoli.",
+      "Struttura modulare che facilita l'aggiunta di report e automatismi futuri.",
     ],
     impact: {
       label: "Focus",
-      value: "Chiarezza finanziaria",
+      value: "Controllo finanziario",
     },
     techStack: ["Next.js", "TypeScript", "React", "TailwindCSS"],
     palette: {

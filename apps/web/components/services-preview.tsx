@@ -142,7 +142,7 @@ export function ServicesPreview() {
 
         {/* Recurring */}
         <Sublabel>Servizi Ricorrenti</Sublabel>
-        <div className="reveal rec-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 1, background: "rgba(255,255,255,0.07)" }}>
+        <div className="reveal rec-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 1, background: "rgba(255,255,255,0.07)" }}>
           {recurring.map((r) => (
             <div key={r.name} style={{ background: "var(--mv-bg)", padding: "28px 24px", transition: "background 0.2s" }}
               onMouseEnter={(e) => { e.currentTarget.style.background = "#0d0d18"; }}
@@ -191,10 +191,14 @@ export function ServicesPreview() {
       </div>
 
       <style>{`
+        @media (max-width: 1200px) {
+          .rec-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
         @media (max-width: 860px) {
           .pkg-grid { grid-template-columns: 1fr !important; }
           .adv-grid { grid-template-columns: 1fr !important; }
           .process-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .rec-grid { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 480px) {
           .process-grid { grid-template-columns: 1fr !important; }

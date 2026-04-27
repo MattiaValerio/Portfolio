@@ -30,13 +30,13 @@ export function About() {
               Costruisco sistemi <em style={{ fontStyle: "normal", color: "var(--mv-accent)" }}>complessi</em> che funzionano.
             </h2>
             <p className="reveal" style={{ fontSize: 16, color: "rgba(232,232,240,0.7)", lineHeight: 1.8, marginBottom: 20 }}>
-              Sono Mattia Valerio, sviluppatore web full stack con base tra Portogruaro e Pordenone. Lavoro in una software house dove sviluppo un gestionale ERP pensato per le fabbriche del futuro — Industria 4.0 e 5.0, nei settori della lavorazione del legno e della meccanica.
+              Sono Mattia Valerio, Full Stack Web Developer specializzato in soluzioni software per l’Industria 4.0. Nel mio lavoro quotidiano in software house, mantengo e sviluppo un sistema ERP avanzato per aziende del settore manifatturiero, orchestrando dati in tempo reale e processi critici.
             </p>
             <p className="reveal" style={{ fontSize: 16, color: "rgba(232,232,240,0.7)", lineHeight: 1.8, marginBottom: 20 }}>
-              Ogni giorno mi confronto con sistemi articolati, dati in tempo reale e interfacce che devono essere veloci, precise e affidabili. Non scrivo solo codice: progetto esperienze utente che semplificano la complessità industriale.
+              Il mio obiettivo? Semplificare l’eccellenza. Non mi limito a scrivere codice: progetto ecosistemi digitali dove velocità, precisione e affidabilità permettono alle aziende di evolvere.
             </p>
             <p className="reveal" style={{ fontSize: 16, color: "rgba(232,232,240,0.7)", lineHeight: 1.8, marginBottom: 20 }}>
-              Come freelancer supporto PMI e aziende nel Veneto orientale con siti web professionali, applicativi su misura e soluzioni digitali concrete.
+              Come freelancer, metto questa esperienza tecnica al servizio delle PMI del Veneto Orientale e del Friuli, realizzando applicativi su misura e siti web che non sono solo "vetrine", ma veri strumenti di crescita.
             </p>
           </div>
 
@@ -44,9 +44,9 @@ export function About() {
             <div className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.07)", marginBottom: 1 }}>
               {[
                 { num: "4.0", label: "Industry focus" },
-                { num: "5+", label: "Anni di codice" },
-                { num: "100%", label: "Ogni progetto" },
-                { num: "PN / VE", label: "Pordenone · Veneto" },
+                { num: "5+", label: "Anni di esperienza" },
+                { num: "Full Stack", label: "Soluzioni end-to-end" },
+                { num: "Tailor-made", label: "Software su misura" },
               ].map((s) => (
                 <div key={s.label} style={{ background: "var(--mv-bg)", padding: "32px 28px" }}>
                   <div style={{ fontSize: 48, fontWeight: 700, letterSpacing: "-0.03em", color: "var(--mv-accent)", lineHeight: 1, marginBottom: 8 }}>{s.num}</div>
@@ -55,9 +55,8 @@ export function About() {
               ))}
             </div>
             <div className="reveal" style={{ marginTop: 1, padding: "20px 24px", border: "1px solid rgba(255,255,255,0.07)", fontFamily: mono, fontSize: 12, color: "rgba(232,232,240,0.5)", lineHeight: 1.7 }}>
-              <strong style={{ color: "var(--mv-accent)" }}>// Settori</strong><br />
-              Lavorazione legno · Metalmeccanica<br />
-              Fabbrica 4.0 · Gestione ERP · Web Platform
+              <strong style={{ color: "var(--mv-accent)" }}>// Knowledge</strong><br />
+              Applicazioni Web · Microservizi · Real Time Data<br />
             </div>
           </div>
         </div>

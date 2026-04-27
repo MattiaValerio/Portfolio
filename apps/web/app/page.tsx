@@ -86,7 +86,7 @@ export default function Page() {
         <Projects />
         <ServicesPreview />
         <Experience />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <Contact />
       </main>
       <Footer />

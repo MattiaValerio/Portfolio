@@ -57,7 +57,7 @@ export function Contact() {
           {/* Left */}
           <div>
             <h2 style={{ fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, letterSpacing: "-0.02em", marginBottom: 20, lineHeight: 1.1 }}>
-              Parliamo di <em style={{ fontStyle: "normal", color: "var(--mv-accent)" }}>qualcosa di bello</em>.
+              Parliamo del tuo prossimo <em style={{ fontStyle: "normal", color: "var(--mv-accent)" }}>progetto</em>.
             </h2>
             <p style={{ fontSize: 16, color: "rgba(232,232,240,0.6)", lineHeight: 1.8, marginBottom: 40 }}>
               Hai un progetto in mente, vuoi collaborare o semplicemente fare una chiacchierata tecnica? Scrivimi — rispondo sempre.
