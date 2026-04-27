@@ -2,184 +2,164 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Button } from "@workspace/ui/components/button";
-import { Moon, Sun, Menu, X } from "lucide-react";
-import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
+
+const navLinks = [
+  { label: "chi sono", hash: "about" },
+  { label: "stack", hash: "stack" },
+  { label: "progetti", hash: "projects" },
+  { label: "servizi", hash: "services" },
+  { label: "esperienza", hash: "experience" },
+  { label: "contatti", hash: "contact" },
+];
+
+const mono = "var(--font-jetbrains-mono), 'JetBrains Mono', monospace";
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  useEffect(() => { setMobileOpen(false); }, [pathname]);
 
   useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [pathname]);
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMobileOpen(false); };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => { document.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
+  }, [mobileOpen]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setMobileMenuOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setMobileMenuOpen(false);
-      }
-    };
-
-    if (mobileMenuOpen) {
-      document.addEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "hidden";
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
-    };
-  }, [mobileMenuOpen]);
-
-  const navLinks = [
-    { label: "Chi sono", sectionId: "about" },
-    { label: "Per chi", sectionId: "audience" },
-    { label: "Pacchetti", sectionId: "offers" },
-    { label: "Soluzioni", sectionId: "advanced" },
-    { label: "Lavori", href: "/lavori" },
-    { label: "Servizi", href: "/servizi" },
-    { label: "Contatti", sectionId: "contact" },
-  ];
-
-  const getHref = (link: { href?: string; sectionId?: string }) => {
-    if (link.href) {
-      return link.href;
-    }
-
-    if (!link.sectionId) {
-      return "/";
-    }
-
-    return pathname === "/" ? `#${link.sectionId}` : `/#${link.sectionId}`;
-  };
-
-  const handleLinkClick = () => {
-    setMobileMenuOpen(false);
-  };
+  const getHref = (hash: string) => pathname === "/" ? `#${hash}` : `/#${hash}`;
 
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-md border-b shadow-sm"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-xl font-bold">
-            MV
-          </Link>
+    <>
+      <nav style={{
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
+        padding: "0 48px", height: 64, display: "flex", alignItems: "center",
+        justifyContent: "space-between",
+        backdropFilter: "blur(12px)",
+        background: "rgba(10,10,16,0.7)",
+        borderBottom: "1px solid rgba(255,255,255,0.05)",
+        animation: "fadeInUp 0.5s cubic-bezier(0.2,0,0,1) 0.05s both",
+      }}>
+        <Link href="/" style={{ fontFamily: mono, fontSize: 13, fontWeight: 500, color: "var(--mv-accent)", letterSpacing: "0.05em", textDecoration: "none", flexShrink: 0 }}>
+          MV.dev
+        </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+        {/* Desktop nav */}
+        <ul className="nav-desktop-links" style={{ display: "flex", gap: 32, listStyle: "none", margin: 0, padding: 0 }}>
+          {navLinks.map((l) => (
+            <li key={l.hash}>
               <Link
-                key={link.label}
-                href={getHref(link)}
-                className="text-sm font-medium hover:text-primary transition-colors"
+                href={getHref(l.hash)}
+                style={{ fontFamily: mono, fontSize: 12, color: "rgba(232,232,240,0.5)", textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase", transition: "color 0.2s" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--mv-accent)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(232,232,240,0.5)")}
               >
-                {link.label}
+                {l.label}
               </Link>
-            ))}
-          </div>
+            </li>
+          ))}
+        </ul>
 
-          <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle theme"
-            >
-              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-            </Button>
-
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-            </Button>
-          </div>
+        {/* Desktop CTA */}
+        <div className="nav-desktop-cta">
+          <Link
+            href={getHref("contact")}
+            style={{ fontFamily: mono, fontSize: 12, fontWeight: 500, color: "var(--mv-bg)", background: "var(--mv-accent)", padding: "8px 20px", borderRadius: 2, textDecoration: "none", letterSpacing: "0.05em", transition: "opacity 0.2s" }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          >
+            Scrivimi →
+          </Link>
         </div>
 
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              className="md:hidden fixed top-16 left-0 right-0 z-40 h-[calc(100dvh-4rem)] bg-background border-t overflow-y-auto overscroll-contain"
-              onClick={handleLinkClick}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-            >
-              <motion.div
-                className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4"
-                onClick={(event) => event.stopPropagation()}
-                initial={{ y: -12, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -8, opacity: 0 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-              >
-                <div className="flex flex-col gap-1">
-                  {navLinks.map((link, index) => (
-                    <motion.div
-                      key={link.label}
-                      initial={{ opacity: 0, y: -6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -4 }}
-                      transition={{ duration: 0.18, delay: index * 0.04 }}
-                    >
-                      <Link
-                        href={getHref(link)}
-                        onClick={handleLinkClick}
-                        className="block text-base font-medium py-3 border-b hover:text-primary transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Hamburger */}
+        <button
+          className="nav-hamburger"
+          style={{ background: "none", border: "none", cursor: "pointer", padding: 8, display: "flex", flexDirection: "column", gap: 5, flexShrink: 0 }}
+          onClick={() => setMobileOpen((o) => !o)}
+          aria-label={mobileOpen ? "Chiudi menu" : "Apri menu"}
+        >
+          <span style={{
+            display: "block", width: 24, height: 2, background: "#e8e8f0", borderRadius: 1, transition: "transform 0.3s, opacity 0.3s",
+            transform: mobileOpen ? "rotate(45deg) translate(5px, 5px)" : "none",
+          }} />
+          <span style={{
+            display: "block", width: 24, height: 2, background: "#e8e8f0", borderRadius: 1, transition: "opacity 0.3s",
+            opacity: mobileOpen ? 0 : 1,
+          }} />
+          <span style={{
+            display: "block", width: 24, height: 2, background: "#e8e8f0", borderRadius: 1, transition: "transform 0.3s, opacity 0.3s",
+            transform: mobileOpen ? "rotate(-45deg) translate(5px, -5px)" : "none",
+          }} />
+        </button>
+      </nav>
+
+      {/* Mobile drawer */}
+      <div
+        className="nav-mobile-drawer"
+        style={{
+          position: "fixed", top: 64, left: 0, right: 0, bottom: 0,
+          background: "rgba(10,10,16,0.97)", backdropFilter: "blur(16px)",
+          zIndex: 99, padding: "24px 32px",
+          display: "flex", flexDirection: "column",
+          transform: mobileOpen ? "translateX(0)" : "translateX(100%)",
+          transition: "transform 0.35s cubic-bezier(0.4,0,0.2,1)",
+          visibility: mobileOpen ? "visible" : "hidden",
+        }}
+      >
+        {navLinks.map((l, i) => (
+          <Link
+            key={l.hash}
+            href={getHref(l.hash)}
+            onClick={() => setMobileOpen(false)}
+            style={{
+              fontFamily: mono, fontSize: 16, color: "rgba(232,232,240,0.6)",
+              textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between",
+              padding: "18px 0", letterSpacing: "0.08em", textTransform: "uppercase",
+              borderBottom: "1px solid rgba(255,255,255,0.05)", transition: "color 0.2s",
+              transitionDelay: mobileOpen ? `${i * 40}ms` : "0ms",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--mv-accent)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(232,232,240,0.6)")}
+          >
+            <span>{l.label}</span>
+            <span style={{ fontFamily: mono, fontSize: 11, color: "var(--mv-accent)", opacity: 0.5 }}>
+              {String(i + 1).padStart(2, "0")}
+            </span>
+          </Link>
+        ))}
+
+        <div style={{ marginTop: "auto", paddingBottom: 32 }}>
+          <Link
+            href={getHref("contact")}
+            onClick={() => setMobileOpen(false)}
+            style={{
+              display: "block", textAlign: "center",
+              fontFamily: mono, fontSize: 13, fontWeight: 600,
+              color: "var(--mv-bg)", background: "var(--mv-accent)",
+              padding: "16px 24px", borderRadius: 2, textDecoration: "none",
+              letterSpacing: "0.05em", textTransform: "uppercase",
+            }}
+          >
+            Scrivimi →
+          </Link>
+        </div>
       </div>
-    </nav>
+
+      <style>{`
+        .nav-desktop-links { display: flex; }
+        .nav-desktop-cta { display: block; }
+        .nav-hamburger { display: none; }
+
+        @media (max-width: 768px) {
+          .nav-desktop-links { display: none !important; }
+          .nav-desktop-cta { display: none !important; }
+          .nav-hamburger { display: flex !important; }
+          nav { padding: 0 24px !important; }
+        }
+      `}</style>
+    </>
   );
 }

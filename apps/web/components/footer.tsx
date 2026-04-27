@@ -1,17 +1,16 @@
+const mono = "var(--font-jetbrains-mono), 'JetBrains Mono', monospace";
+
 export function Footer() {
   return (
-    <footer className="border-t bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col items-center gap-4">
-          <p className="text-sm text-muted-foreground text-center">
-            Sviluppo software e applicazioni web a Portogruaro, Venezia,
-            Pordenone e Veneto orientale.
-          </p>
-          <p className="text-sm text-muted-foreground text-center">
-            © {new Date().getFullYear()} Mattia Valerio. Tutti i diritti riservati.
-          </p>
-        </div>
-      </div>
+    <footer style={{
+      padding: "32px 48px", borderTop: "1px solid rgba(255,255,255,0.05)",
+      display: "flex", justifyContent: "space-between", alignItems: "center",
+      fontFamily: mono, fontSize: 11, color: "rgba(232,232,240,0.25)",
+      letterSpacing: "0.08em", position: "relative", zIndex: 1, flexWrap: "wrap", gap: 12,
+    }}>
+      <span>© {new Date().getFullYear()} Mattia Valerio</span>
+      <span>Portogruaro · Veneto · IT</span>
+      <span>MV.dev</span>
     </footer>
   );
 }

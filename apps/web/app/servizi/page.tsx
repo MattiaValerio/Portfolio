@@ -68,11 +68,8 @@ export default function ServiziPage() {
   };
 
   return (
-    <div className="min-h-screen">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <div style={{ minHeight: "100vh" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Navbar />
       <ServicesPage />
       <Footer />

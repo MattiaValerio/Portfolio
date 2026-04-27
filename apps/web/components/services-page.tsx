@@ -1,24 +1,16 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { Badge } from "@workspace/ui/components/badge";
-import { Button } from "@workspace/ui/components/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@workspace/ui/components/card";
-import { Check, Mail } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useRef } from "react";
+
+const mono = "var(--font-jetbrains-mono), 'JetBrains Mono', monospace";
 
 const packages = [
   {
+    badge: "Start",
     name: "START",
     timeline: "3–5 giorni lavorativi",
-    description:
-      "Ideale per attività che vogliono una presenza online semplice ma professionale.",
+    description: "Ideale per attività che vogliono una presenza online semplice ma professionale.",
     features: [
       "Sito one-page responsive",
       "Presentazione azienda, servizi e contatti",
@@ -27,12 +19,13 @@ const packages = [
       "Configurazione iniziale dominio e hosting",
       "1 revisione inclusa",
     ],
+    featured: false,
   },
   {
+    badge: "Più richiesto",
     name: "BUSINESS",
     timeline: "5–7 giorni lavorativi",
-    description:
-      "Pensato per aziende che vogliono presentare meglio i propri servizi.",
+    description: "Pensato per aziende che vogliono presentare meglio i propri servizi.",
     features: [
       "Tutto del pacchetto START",
       "Sito multipagina fino a 5 pagine",
@@ -41,12 +34,13 @@ const packages = [
       "Ottimizzazione performance",
       "2 revisioni incluse",
     ],
+    featured: true,
   },
   {
+    badge: "Avanzato",
     name: "PRO",
     timeline: "7–10 giorni lavorativi",
-    description:
-      "Per aziende che vogliono un sito piu evoluto, con contenuti dinamici e una struttura piu flessibile.",
+    description: "Per aziende che vogliono un sito più evoluto, con contenuti dinamici e struttura flessibile.",
     features: [
       "Tutto del pacchetto BUSINESS",
       "Sistema per aggiornare contenuti",
@@ -54,341 +48,186 @@ const packages = [
       "Supporto multilingua IT/EN",
       "3 revisioni incluse",
     ],
+    featured: false,
   },
 ];
 
 const recurringServices = [
-  {
-    name: "Hosting",
-    items: [
-      "Hosting sito sul VPS dedicato",
-      "DB incluso per siti standard",
-      "Incluso per tutti i siti pubblicati sul VPS",
-      "Per applicazioni con DB personalizzato: su preventivo",
-    ],
-  },
-  {
-    name: "Manutenzione Tecnica",
-    items: [
-      "Monitoraggio sito e backup periodici",
-      "Aggiornamenti tecnici",
-      "Piccole modifiche contenuti (fino a 30 min/mese)",
-      "Supporto email",
-    ],
-  },
-  {
-    name: "Aggiornamento Contenuti",
-    items: [
-      "Aggiornamento testi e immagini",
-      "Inserimento nuovi lavori o servizi",
-      "Gestione contenuti del sito",
-    ],
-  },
-  {
-    name: "SEO Locale",
-    items: [
-      "Revisione e ottimizzazione pagine esistenti",
-      "Miglioramento struttura per il posizionamento locale",
-      "Aggiornamento meta e contenuti SEO-friendly",
-    ],
-  },
-  {
-    name: "Supporto Tecnico Prioritario",
-    items: [
-      "Risposta garantita entro 24h",
-      "Interventi urgenti su sito o funzionalita",
-      "Piccole implementazioni tecniche",
-    ],
-  },
-  {
-    name: "Gestione Completa Sito + Hosting",
-    items: [
-      "Hosting incluso e gestione tecnica centralizzata",
-      "Monitoraggio, backup e aggiornamenti continuativi",
-      "Gestione contenuti e supporto operativo",
-      "Un unico referente per sito, pubblicazione e continuita del servizio",
-    ],
-  },
+  { name: "Hosting", items: ["Hosting VPS dedicato", "DB incluso per siti standard", "Architetture custom su preventivo"] },
+  { name: "Manutenzione Tecnica", items: ["Monitoraggio e backup periodici", "Aggiornamenti tecnici", "Modifiche contenuti (30 min/mese)", "Supporto email"] },
+  { name: "Aggiornamento Contenuti", items: ["Aggiornamento testi e immagini", "Inserimento nuovi lavori/servizi", "Gestione contenuti del sito"] },
+  { name: "SEO Locale", items: ["Revisione pagine esistenti", "Ottimizzazione posizionamento locale", "Meta e contenuti SEO-friendly"] },
+  { name: "Supporto Prioritario", items: ["Risposta garantita entro 24h", "Interventi urgenti", "Piccole implementazioni tecniche"] },
+  { name: "Gestione Completa", items: ["Hosting + gestione centralizzata", "Monitoraggio, backup continui", "Unico referente operativo"] },
 ];
 
 const advancedServices = [
-  {
-    title: "Web App su Misura",
-    description:
-      "Sviluppo applicativi custom per digitalizzare processi aziendali, aree clienti e flussi operativi.",
-  },
-  {
-    title: "Integrazioni Aziendali",
-    description:
-      "Integrazione con API, CRM, gestionali e strumenti di terze parti per centralizzare dati e operazioni.",
-  },
-  {
-    title: "Soluzioni Enterprise-ready",
-    description:
-      "Architetture performanti e scalabili, con attenzione a sicurezza, manutenzione e crescita nel tempo.",
-  },
-];
-
-const processSteps = [
-  {
-    title: "Analisi iniziale",
-    description:
-      "Call breve o scambio email per capire attività, obiettivi e servizi da promuovere.",
-  },
-  {
-    title: "Raccolta materiali",
-    description:
-      "Raccolta logo, testi, immagini e informazioni aziendali, con supporto nella preparazione contenuti se necessario.",
-  },
-  {
-    title: "Sviluppo",
-    description:
-      "Realizzazione con stack moderno, focus su velocità, mobile e SEO base.",
-  },
-  {
-    title: "Revisione e pubblicazione",
-    description:
-      "Applicazione delle revisioni incluse e messa online con configurazione corretta.",
-  },
+  { icon: "⬡", name: "Web App su Misura", desc: "Sviluppo applicativi custom per digitalizzare processi aziendali, aree clienti e flussi operativi." },
+  { icon: "⇄", name: "Integrazioni Aziendali", desc: "Integrazione con API, CRM, gestionali e strumenti di terze parti per centralizzare dati e operazioni." },
+  { icon: "◈", name: "Soluzioni Enterprise-ready", desc: "Architetture performanti e scalabili, con attenzione a sicurezza, manutenzione e crescita nel tempo." },
 ];
 
 const faqs = [
-  {
-    question: "Il dominio e l'hosting sono inclusi?",
-    answer:
-      "L'hosting è un servizio separato a 15€/mese, obbligatorio per tutti i siti pubblicati sul VPS. Se non disponi di un dominio, ci penso io.",
-  },
-  {
-    question: "Quanto costa l'hosting?",
-    answer:
-      "Per siti standard parte da 15€/mese, con DB incluso. Per applicazioni con database personalizzato e architettura su misura, il costo è su preventivo.",
-  },
-  {
-    question: "Posso aggiornare il sito da solo?",
-    answer:
-      "Sì, con il pacchetto PRO è inclusa una gestione contenuti che permette aggiornamenti autonomi.",
-  },
-  {
-    question: "Quanto tempo serve?",
-    answer:
-      "In media da 3 a 10 giorni lavorativi, in base al pacchetto e alla complessità.",
-  },
-  {
-    question: "È prevista assistenza dopo la pubblicazione?",
-    answer:
-      "Sì, è possibile attivare uno dei piani ricorrenti di manutenzione e aggiornamento.",
-  },
+  { q: "Il dominio e l'hosting sono inclusi?", a: "L'hosting è un servizio separato a 15€/mese, obbligatorio per tutti i siti pubblicati sul VPS. Se non disponi di un dominio, ci penso io." },
+  { q: "Quanto costa l'hosting?", a: "Per siti standard parte da 15€/mese, con DB incluso. Per applicazioni con database personalizzato e architettura su misura, il costo è su preventivo." },
+  { q: "Posso aggiornare il sito da solo?", a: "Sì, con il pacchetto PRO è inclusa una gestione contenuti che permette aggiornamenti autonomi." },
+  { q: "Quanto tempo serve?", a: "In media da 3 a 10 giorni lavorativi, in base al pacchetto e alla complessità." },
+  { q: "È prevista assistenza dopo la pubblicazione?", a: "Sì, è possibile attivare uno dei piani ricorrenti di manutenzione e aggiornamento." },
 ];
 
+function Sublabel({ children }: { children: React.ReactNode }) {
+  return (
+    <p style={{ fontFamily: mono, fontSize: 11, fontWeight: 500, color: "var(--mv-accent)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 24, marginTop: 80, display: "block" }}>
+      {children}
+    </p>
+  );
+}
+
 export function ServicesPage() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const revealEls = el.querySelectorAll<HTMLElement>(".reveal");
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } }),
+      { threshold: 0.05 }
+    );
+    revealEls.forEach((r) => io.observe(r));
+    return () => io.disconnect();
+  }, []);
 
   return (
-    <main ref={ref}>
-      <section className="pt-28 pb-14 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Badge variant="outline" className="mb-4">
-              Servizi Digitali per Aziende
-            </Badge>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-              Sviluppo software e soluzioni web a Portogruaro
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Supporto PMI e aziende strutturate a Portogruaro, Venezia,
-              Pordenone e nel Veneto orientale con soluzioni digitali che
-              uniscono presenza online, automazione dei processi e sviluppo di
-              piattaforme web evolute.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <main ref={ref} style={{ position: "relative", zIndex: 1 }}>
+      {/* Hero */}
+      <section style={{ paddingTop: 140, paddingBottom: 80 }}>
+        <div className="mv-container">
+          <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: mono, fontSize: 11, color: "rgba(232,232,240,0.35)", letterSpacing: "0.1em", textDecoration: "none", marginBottom: 48, transition: "color 0.2s" }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = "var(--mv-accent)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(232,232,240,0.35)"; }}>
+            ← Torna al portfolio
+          </Link>
 
-      <section id="packages" className="py-14 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-center">
-            Pacchetti Sito Web
-          </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {packages.map((pack, index) => (
-              <motion.div
-                key={pack.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                }
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="h-full">
-                  <CardHeader>
-                    <div className="flex items-center justify-between gap-3">
-                      <CardTitle>{pack.name}</CardTitle>
-                      <Button size="sm" asChild>
-                        <a href="mailto:mattiavalerio.dev@gmail.com">
-                          <Mail className="mr-1.5 h-3.5 w-3.5" />
-                          Contattami
-                        </a>
-                      </Button>
-                    </div>
-                    <CardDescription>{pack.description}</CardDescription>
-                    <p className="text-sm text-muted-foreground">
-                      Tempi: {pack.timeline}
-                    </p>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {pack.features.map((feature) => (
-                        <li
-                          key={feature}
-                          className="text-sm text-muted-foreground flex items-start gap-2"
-                        >
-                          <Check className="h-4 w-4 mt-0.5 text-primary" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="recurring" className="py-14 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-center">
-            Servizi Ricorrenti
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {recurringServices.map((service) => (
-              <Card key={service.name}>
-                <CardHeader>
-                  <div className="flex items-center justify-between gap-3">
-                    <CardTitle className="text-xl">{service.name}</CardTitle>
-                    <Button size="sm" asChild>
-                      <a href="mailto:mattiavalerio.dev@gmail.com">
-                        <Mail className="mr-1.5 h-3.5 w-3.5" />
-                        Contattami
-                      </a>
-                    </Button>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {service.items.map((item) => (
-                      <li
-                        key={item}
-                        className="text-sm text-muted-foreground flex items-start gap-2"
-                      >
-                        <Check className="h-4 w-4 mt-0.5 text-primary" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="advanced" className="py-14 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center">
-            Soluzioni Avanzate
-          </h2>
-          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-10">
-            Oltre alla realizzazione iniziale, e disponibile anche la gestione
-            completa del sito con hosting incluso, manutenzione e supporto.
+          <p style={{ fontFamily: mono, fontSize: 11, color: "rgba(232,232,240,0.25)", letterSpacing: "0.15em", marginBottom: 20 }}>SERVIZI DIGITALI PER AZIENDE</p>
+          <h1 style={{ fontSize: "clamp(40px, 7vw, 88px)", fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 0.95, marginBottom: 28 }}>
+            Quello che posso<br /><em style={{ fontStyle: "normal", color: "var(--mv-accent)" }}>fare per te</em>.
+          </h1>
+          <p style={{ fontSize: 18, color: "rgba(232,232,240,0.6)", maxWidth: 600, lineHeight: 1.7 }}>
+            Supporto PMI e aziende a Portogruaro, Venezia e nel Veneto orientale con soluzioni digitali che uniscono presenza online, automazione dei processi e sviluppo di piattaforme web evolute.
           </p>
-          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-10">
-            I pacchetti sito web sono il punto di partenza: posso occuparmi
-            anche di applicativi web complessi per aziende con esigenze più
-            strutturate.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {advancedServices.map((service) => (
-              <Card key={service.title}>
-                <CardHeader>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                  <CardDescription>{service.description}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
         </div>
       </section>
 
-      <section id="process" className="py-14 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-center">
-            Processo di Lavoro
-          </h2>
-          <div className="space-y-5">
-            {processSteps.map((step, index) => (
-              <Card key={step.title}>
-                <CardContent className="pt-6">
-                  <div className="flex items-start gap-4">
-                    <Badge variant="outline" className="mt-0.5">
-                      {index + 1}
-                    </Badge>
-                    <div>
-                      <h3 className="text-lg font-semibold mb-1">{step.title}</h3>
-                      <p className="text-muted-foreground text-sm">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+      {/* Content */}
+      <section style={{ paddingBottom: 120 }}>
+        <div className="mv-container">
+
+          {/* Packages */}
+          <Sublabel>Pacchetti Sito Web</Sublabel>
+          <div className="reveal pkg-grid-sp" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: "rgba(255,255,255,0.07)" }}>
+            {packages.map((pkg) => (
+              <div key={pkg.name} style={{ background: pkg.featured ? "#101020" : "#0d0d14", padding: "40px 32px", position: "relative", transition: "background 0.3s" }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = "#12121c"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = pkg.featured ? "#101020" : "#0d0d14"; }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: "var(--mv-accent)", opacity: pkg.featured ? 1 : 0, transition: "opacity 0.3s" }} />
+                <div style={{ fontFamily: mono, fontSize: 10, fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--mv-accent)", marginBottom: 6 }}>{pkg.badge}</div>
+                <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", marginBottom: 4 }}>{pkg.name}</div>
+                <div style={{ fontFamily: mono, fontSize: 11, color: "rgba(232,232,240,0.3)", letterSpacing: "0.08em", marginBottom: 24 }}>Tempi: {pkg.timeline}</div>
+                <p style={{ fontSize: 13, color: "rgba(232,232,240,0.55)", lineHeight: 1.6, marginBottom: 28 }}>{pkg.description}</p>
+                <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10, marginBottom: 36, padding: 0 }}>
+                  {pkg.features.map((f) => (
+                    <li key={f} style={{ fontSize: 13, color: "rgba(232,232,240,0.7)", display: "flex", gap: 10, alignItems: "flex-start", lineHeight: 1.5 }}>
+                      <span style={{ color: "var(--mv-accent)", fontFamily: mono, fontSize: 12, flexShrink: 0, marginTop: 1 }}>✓</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <a href="mailto:mattiavalerio.dev@gmail.com" style={{ display: "inline-block", fontFamily: mono, fontSize: 12, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", padding: "12px 24px", border: `1px solid ${pkg.featured ? "var(--mv-accent)" : "rgba(255,255,255,0.15)"}`, color: pkg.featured ? "var(--mv-accent)" : "rgba(232,232,240,0.7)", textDecoration: "none", borderRadius: 2, transition: "border-color 0.2s, color 0.2s" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--mv-accent)"; e.currentTarget.style.color = "var(--mv-accent)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = pkg.featured ? "var(--mv-accent)" : "rgba(255,255,255,0.15)"; e.currentTarget.style.color = pkg.featured ? "var(--mv-accent)" : "rgba(232,232,240,0.7)"; }}>
+                  Contattami →
+                </a>
+              </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section id="faq" className="py-14 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-center">
-            Domande Frequenti
-          </h2>
-          <div className="space-y-4">
+          {/* Recurring */}
+          <Sublabel>Servizi Ricorrenti</Sublabel>
+          <div className="reveal rec-grid-sp" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 1, background: "rgba(255,255,255,0.07)" }}>
+            {recurringServices.map((r) => (
+              <div key={r.name} style={{ background: "var(--mv-bg)", padding: "28px 24px", transition: "background 0.2s" }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = "#0d0d18"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = "var(--mv-bg)"; }}>
+                <div style={{ fontSize: 15, fontWeight: 600, marginBottom: 12 }}>{r.name}</div>
+                <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 7, marginBottom: 20, padding: 0 }}>
+                  {r.items.map((item) => (
+                    <li key={item} style={{ fontFamily: mono, fontSize: 11, color: "rgba(232,232,240,0.5)", display: "flex", gap: 8, lineHeight: 1.4 }}>
+                      <span style={{ color: "var(--mv-accent)", flexShrink: 0, opacity: 0.6 }}>—</span>{item}
+                    </li>
+                  ))}
+                </ul>
+                <a href="mailto:mattiavalerio.dev@gmail.com" style={{ fontFamily: mono, fontSize: 10, color: "var(--mv-accent)", letterSpacing: "0.1em", textDecoration: "none", opacity: 0.7, transition: "opacity 0.2s" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.opacity = "1"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.7"; }}>
+                  Richiedi info →
+                </a>
+              </div>
+            ))}
+          </div>
+
+          {/* Advanced */}
+          <Sublabel>Soluzioni Avanzate</Sublabel>
+          <div className="reveal adv-grid-sp" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: "rgba(255,255,255,0.07)" }}>
+            {advancedServices.map((a) => (
+              <div key={a.name} style={{ background: "var(--mv-bg)", padding: "40px 32px" }}>
+                <div style={{ fontFamily: mono, fontSize: 22, color: "var(--mv-accent)", marginBottom: 16, opacity: 0.8 }}>{a.icon}</div>
+                <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-0.01em", marginBottom: 10 }}>{a.name}</div>
+                <p style={{ fontSize: 14, color: "rgba(232,232,240,0.55)", lineHeight: 1.7 }}>{a.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* FAQ */}
+          <Sublabel>Domande Frequenti</Sublabel>
+          <div className="reveal" style={{ display: "flex", flexDirection: "column", gap: 1, background: "rgba(255,255,255,0.07)" }}>
             {faqs.map((faq) => (
-              <Card key={faq.question}>
-                <CardContent className="pt-6">
-                  <h3 className="text-lg font-semibold mb-2">{faq.question}</h3>
-                  <p className="text-sm text-muted-foreground">{faq.answer}</p>
-                </CardContent>
-              </Card>
+              <div key={faq.q} style={{ background: "var(--mv-bg)", padding: "28px 32px" }}>
+                <h3 style={{ fontSize: 16, fontWeight: 600, marginBottom: 10 }}>{faq.q}</h3>
+                <p style={{ fontSize: 14, color: "rgba(232,232,240,0.6)", lineHeight: 1.7 }}>{faq.a}</p>
+              </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Richiedi una consulenza
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Valutiamo insieme se per la tua azienda è più adatto un sito
-            professionale, una piattaforma web custom o una soluzione ibrida.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" asChild>
-              <a href="mailto:mattiavalerio.dev@gmail.com">
-                <Mail className="mr-2 h-5 w-5" />
+          {/* CTA */}
+          <div className="reveal" style={{ marginTop: 80, padding: "60px 48px", border: "1px solid rgba(255,255,255,0.07)", textAlign: "center" }}>
+            <h2 style={{ fontSize: "clamp(24px, 3vw, 40px)", fontWeight: 700, letterSpacing: "-0.02em", marginBottom: 16 }}>
+              Richiedi una consulenza
+            </h2>
+            <p style={{ fontSize: 16, color: "rgba(232,232,240,0.6)", maxWidth: 560, margin: "0 auto 40px", lineHeight: 1.7 }}>
+              Valutiamo insieme se per la tua azienda è più adatto un sito professionale, una piattaforma web custom o una soluzione ibrida.
+            </p>
+            <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+              <a href="mailto:mattiavalerio.dev@gmail.com" style={{ fontFamily: mono, fontSize: 13, fontWeight: 500, background: "var(--mv-accent)", color: "var(--mv-bg)", padding: "14px 32px", borderRadius: 2, textDecoration: "none", letterSpacing: "0.05em", transition: "opacity 0.2s" }}
+                onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.85"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}>
                 mattiavalerio.dev@gmail.com
               </a>
-            </Button>
+              <Link href="/lavori" style={{ fontFamily: mono, fontSize: 13, fontWeight: 400, border: "1px solid rgba(232,232,240,0.2)", color: "rgba(232,232,240,0.7)", padding: "14px 32px", borderRadius: 2, textDecoration: "none", letterSpacing: "0.05em", transition: "border-color 0.2s, color 0.2s" }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--mv-accent)"; e.currentTarget.style.color = "var(--mv-accent)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(232,232,240,0.2)"; e.currentTarget.style.color = "rgba(232,232,240,0.7)"; }}>
+                Vedi i lavori
+              </Link>
+            </div>
           </div>
         </div>
       </section>
+
+      <style>{`
+        @media (max-width: 860px) {
+          .pkg-grid-sp, .adv-grid-sp { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </main>
   );
 }

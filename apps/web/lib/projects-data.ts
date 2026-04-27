@@ -15,6 +15,7 @@ export type ProjectImpact = {
 };
 
 export type ProjectItem = {
+  slug: string;
   name: string;
   category: string;
   year: string;
@@ -29,6 +30,7 @@ export type ProjectItem = {
 
 export const projectsData: ProjectItem[] = [
   {
+    slug: "hyper-broker",
     name: "Hyper Broker",
     category: "Fintech Platform",
     year: "2026",
@@ -54,6 +56,7 @@ export const projectsData: ProjectItem[] = [
     },
   },
   {
+    slug: "audix",
     name: "Audix",
     category: "AI Productivity",
     year: "2025",
@@ -80,6 +83,7 @@ export const projectsData: ProjectItem[] = [
     },
   },
   {
+    slug: "myfinance",
     name: "MyFinance",
     category: "Personal Finance",
     year: "2025",

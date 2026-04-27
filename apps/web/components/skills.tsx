@@ -1,84 +1,89 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { Badge } from "@workspace/ui/components/badge";
+import { useEffect, useRef } from "react";
 
-const skillsData = {
-  categories: [
-    {
-      name: "Linguaggi",
-      items: ["C#", "TypeScript", "JavaScript", "HTML", "CSS", "SQL"],
-    },
-    {
-      name: "Framework & Librerie",
-      items: [".NET", "Blazor", "React", "Next.js"],
-    },
-    {
-      name: "Database",
-      items: ["SQL Server", "PostgreSQL"],
-    },
-    {
-      name: "DevOps & Cloud",
-      items: ["Docker", "Git", "CI/CD", "Azure", "AWS"],
-    },
-  ],
-};
+const mono = "var(--font-jetbrains-mono), 'JetBrains Mono', monospace";
+
+const categories = [
+  {
+    title: "Frontend",
+    items: [
+      { name: "React", level: "expert" },
+      { name: "Next.js", level: "advanced" },
+      { name: "TypeScript", level: "expert" },
+      { name: "TailwindCSS", level: "advanced" },
+    ],
+  },
+  {
+    title: "Backend",
+    items: [
+      { name: "Node.js", level: "expert" },
+      { name: "Fastify", level: "advanced" },
+      { name: "REST / API", level: "expert" },
+      { name: "C# / .NET", level: "intermediate" },
+    ],
+  },
+  {
+    title: "Database",
+    items: [
+      { name: "PostgreSQL", level: "advanced" },
+      { name: "SQL Server", level: "intermediate" },
+      { name: "Redis", level: "intermediate" },
+      { name: "Prisma ORM", level: "advanced" },
+    ],
+  },
+  {
+    title: "Tooling",
+    items: [
+      { name: "Git / GitHub", level: "expert" },
+      { name: "Docker", level: "intermediate" },
+      { name: "CI/CD", level: "intermediate" },
+      { name: "Azure / AWS", level: "intermediate" },
+    ],
+  },
+];
 
 export function Skills() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const revealEls = el.querySelectorAll<HTMLElement>(".reveal");
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } }),
+      { threshold: 0.1 }
+    );
+    revealEls.forEach((r) => io.observe(r));
+    return () => io.disconnect();
+  }, []);
 
   return (
-    <section
-      id="skills"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30"
-      ref={ref}
-    >
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">
-            Stack Tecnologico
-          </h2>
-          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-10">
-            Tecnologie e competenze utilizzate per realizzare soluzioni web
-            affidabili, scalabili e adatte anche a contesti aziendali complessi.
-          </p>
+    <section id="stack" ref={ref} style={{ padding: "120px 0", borderTop: "1px solid rgba(255,255,255,0.05)", position: "relative", zIndex: 1 }}>
+      <div className="mv-container">
+        <p className="section-label">02 — Tecnologie</p>
+        <h2 className="reveal" style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 700, letterSpacing: "-0.02em", marginBottom: 64, maxWidth: 700, lineHeight: 1.2 }}>
+          Le mie armi di <em style={{ fontStyle: "normal", color: "var(--mv-accent)" }}>scelta quotidiana</em>.
+        </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {skillsData.categories.map((category, categoryIndex) => (
-              <motion.div
-                key={category.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                }
-                transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-                className="bg-card rounded-lg p-6 shadow-sm border"
-              >
-                <h3 className="text-xl font-semibold mb-4 text-foreground">
-                  {category.name}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {category.items.map((skill) => (
-                    <Badge
-                      key={skill}
-                      variant="secondary"
-                      className="text-sm px-3 py-1"
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        <div className="reveal stack-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 1, background: "rgba(255,255,255,0.07)" }}>
+          {categories.map((cat) => (
+            <div key={cat.title} style={{ background: "var(--mv-bg)", padding: "36px 28px" }}>
+              <div style={{ fontFamily: mono, fontSize: 10, fontWeight: 500, color: "var(--mv-accent)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 20 }}>
+                {cat.title}
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {cat.items.map((item) => (
+                  <div key={item.name} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--mv-accent)", opacity: 0.6, flexShrink: 0 }} />
+                    <span style={{ fontSize: 15, fontWeight: 500, color: "rgba(232,232,240,0.85)" }}>{item.name}</span>
+                    <span style={{ marginLeft: "auto", fontFamily: mono, fontSize: 10, color: "rgba(232,232,240,0.3)", letterSpacing: "0.05em" }}>{item.level}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -3,12 +3,12 @@ import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { Skills } from "@/components/skills";
 import { Projects } from "@/components/projects";
+import { ServicesPreview } from "@/components/services-preview";
+import { Experience } from "@/components/experience";
+import { Testimonials } from "@/components/testimonials";
 import { Contact } from "@/components/contact";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { Audience } from "@/components/audience";
-import { ServicesPreview } from "@/components/services-preview";
-import { AdvancedSolutions } from "@/components/advanced-solutions";
 
 export const revalidate = 86400;
 
@@ -38,9 +38,7 @@ export const metadata: Metadata = {
     "automazione processi",
     "sviluppatore web aziende",
   ],
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Sviluppo Software a Portogruaro",
     description:
@@ -65,50 +63,30 @@ export default function Page() {
           postalCode: "30026",
           addressCountry: "IT",
         },
-        areaServed: [
-          "Portogruaro",
-          "Pordenone",
-          "San Donà di Piave",
-          "Latisana",
-          "Bibione",
-          "Caorle",
-          "Veneto",
-        ],
+        areaServed: ["Portogruaro", "Pordenone", "San Donà di Piave", "Latisana", "Bibione", "Caorle", "Veneto"],
       },
       {
         "@type": "ProfessionalService",
         name: "Mattia Valerio - Soluzioni Web per Aziende",
         url: "https://mattiavalerio.dev",
-        serviceType: [
-          "Sviluppo software",
-          "Sviluppo siti web",
-          "Sviluppo applicativi web",
-          "Integrazione API",
-          "Consulenza tecnica",
-        ],
-        provider: {
-          "@type": "Person",
-          name: "Mattia Valerio",
-        },
+        serviceType: ["Sviluppo software", "Sviluppo siti web", "Sviluppo applicativi web", "Integrazione API", "Consulenza tecnica"],
+        provider: { "@type": "Person", name: "Mattia Valerio" },
       },
     ],
   };
 
   return (
-    <div className="min-h-screen">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <div style={{ minHeight: "100vh" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Navbar />
       <main>
         <Hero />
         <About />
-        <Audience />
-        <ServicesPreview />
-        <AdvancedSolutions />
         <Skills />
         <Projects />
+        <ServicesPreview />
+        <Experience />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />
