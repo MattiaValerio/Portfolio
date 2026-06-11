@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.mattiavalerio.dev" }],
+      "destination": "https://mattiavalerio.dev/:path*",
+      "permanent": true
+    }
+  ]
+}
