@@ -1,0 +1,39 @@
+# Mattia Valerio — Software Developer
+
+Mattia Valerio è un full-stack software developer con sede a Portogruaro, Veneto,
+Italia, specializzato in .NET, Blazor e React per applicazioni web destinate a
+piccole e medie imprese. I servizi includono sviluppo di applicazioni web custom,
+progettazione API backend (C#, Node.js), deployment cloud (Azure, AWS),
+architettura database (PostgreSQL) e integrazioni ERP/sistemi aziendali.
+Disponibile per progetti a contratto e collaborazioni continuative nel Veneto
+e da remoto in tutta Italia.
+
+## Servizi
+- Applicazioni web custom (.NET / Blazor / React / Next.js)
+- Sviluppo backend (C#, Node.js, REST API, Fastify)
+- Infrastruttura cloud (Azure, AWS, Docker, CI/CD)
+- Integrazioni sistemi aziendali e connettività ERP
+- Database design e ottimizzazione (PostgreSQL, SQL Server, Redis)
+- Soluzioni Industria 4.0 e automazione processi
+- Siti web aziendali professionali
+
+## Esperienza
+Full Stack Developer dal 2022. Sviluppo e manutenzione di un gestionale ERP
+avanzato per l'Industria 4.0 in software house a Pordenone. Freelance per PMI
+del Veneto orientale dal 2022.
+
+## Tecnologie
+.NET, C#, Blazor, React, Next.js, TypeScript, Node.js, Fastify, PostgreSQL,
+SQL Server, Redis, Azure, AWS, Docker, TailwindCSS, WebSocket
+
+## Area di Servizio
+Portogruaro (VE), Pordenone, Venezia, San Donà di Piave, Veneto, Italia.
+Progetti remoti accettati su tutto il territorio nazionale.
+
+## Contatti
+Sito: https://mattiavalerio.dev
+Email: mattiavalerio.dev@gmail.com
+
+## AI Use Policy
+Utilizzo per ricerca e citazione: consentito.
+Utilizzo per addestramento di modelli AI: non consentito.

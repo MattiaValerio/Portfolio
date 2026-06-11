@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 
 const mono = "var(--font-jetbrains-mono), 'JetBrains Mono', monospace";
 
+const techStack = [".NET", "Blazor", "C#", "React", "Azure"];
+
 export function Hero() {
   const [typed, setTyped] = useState("");
   const role = "Full Stack Developer";
@@ -46,9 +48,33 @@ export function Hero() {
               <span style={{ color: "var(--mv-accent)" }}>Valerio</span>
             </h1>
 
-            <p className="anim-3" style={{ fontFamily: mono, fontSize: "clamp(13px, 2vw, 18px)", color: "rgba(232,232,240,0.5)", fontWeight: 300, letterSpacing: "0.05em", marginBottom: 32 }}>
+            <p className="anim-3" style={{ fontFamily: mono, fontSize: "clamp(13px, 2vw, 18px)", color: "rgba(232,232,240,0.5)", fontWeight: 300, letterSpacing: "0.05em", marginBottom: 16 }}>
               &lt; {typed}<span className="cursor" />&nbsp;/&gt;
             </p>
+
+            {/* Tech stack tagline — visible above fold per SEO e clienti enterprise */}
+            <div className="anim-3" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8, marginBottom: 28 }}>
+              {techStack.map((tech) => (
+                <span
+                  key={tech}
+                  style={{
+                    fontFamily: mono,
+                    fontSize: 11,
+                    color: "rgba(232,232,240,0.45)",
+                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                    padding: "3px 10px",
+                    borderRadius: 2,
+                    letterSpacing: "0.06em",
+                  }}
+                >
+                  {tech}
+                </span>
+              ))}
+              <span style={{ fontFamily: mono, fontSize: 11, color: "rgba(232,232,240,0.25)", letterSpacing: "0.06em" }}>
+                — soluzioni enterprise per le PMI venete
+              </span>
+            </div>
 
             <p className="anim-4" style={{
               fontSize: "clamp(16px, 2.5vw, 22px)", fontWeight: 400,

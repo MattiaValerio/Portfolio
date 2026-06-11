@@ -30,7 +30,7 @@ export function About() {
               Costruisco sistemi <em style={{ fontStyle: "normal", color: "var(--mv-accent)" }}>complessi</em> che funzionano.
             </h2>
             <p className="reveal" style={{ fontSize: 16, color: "rgba(232,232,240,0.7)", lineHeight: 1.8, marginBottom: 20 }}>
-              Sono Mattia Valerio, Full Stack Web Developer specializzato in soluzioni software per l’Industria 4.0. Nel mio lavoro quotidiano in software house, mantengo e sviluppo un sistema ERP avanzato per aziende del settore manifatturiero, orchestrando dati in tempo reale e processi critici.
+              Sono Mattia Valerio, Full Stack Web Developer specializzato in <strong style={{ color: "rgba(232,232,240,0.9)", fontWeight: 600 }}>.NET, Blazor e React</strong> per soluzioni software Industria 4.0. Nel mio lavoro quotidiano in software house mantengo e sviluppo un sistema ERP avanzato per aziende del settore manifatturiero, orchestrando dati in tempo reale e processi critici.
             </p>
             <p className="reveal" style={{ fontSize: 16, color: "rgba(232,232,240,0.7)", lineHeight: 1.8, marginBottom: 20 }}>
               Il mio obiettivo? Semplificare l’eccellenza. Non mi limito a scrivere codice: progetto ecosistemi digitali dove velocità, precisione e affidabilità permettono alle aziende di evolvere.

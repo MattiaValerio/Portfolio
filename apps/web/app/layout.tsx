@@ -51,10 +51,11 @@ export const metadata: Metadata = {
     "Web development",
     "Digital transformation",
     "C#",
+    ".NET",
+    "Blazor",
     "TypeScript",
     "JavaScript",
     "SQL",
-    "Blazor",
     "Next.js",
     "Azure",
     "AWS",
@@ -95,13 +96,13 @@ export const metadata: Metadata = {
     title: "Sviluppo Software a Portogruaro",
     description:
       "Applicazioni web, siti professionali e soluzioni software per aziende del Veneto orientale.",
-    siteName: "Mattia Valerio Portfolio",
+    siteName: "Mattia Valerio — Sviluppo Software",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Mattia Valerio - Soluzioni Web per Aziende",
+        alt: "Mattia Valerio - Sviluppo Software a Portogruaro",
       },
     ],
   },
@@ -114,6 +115,41 @@ export const metadata: Metadata = {
   },
 };
 
+const siteSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://mattiavalerio.dev/#website",
+      url: "https://mattiavalerio.dev",
+      name: "Mattia Valerio — Sviluppo Software a Portogruaro",
+      inLanguage: "it-IT",
+      publisher: { "@id": "https://mattiavalerio.dev/#person" },
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mattiavalerio.dev/#person",
+      name: "Mattia Valerio",
+      url: "https://mattiavalerio.dev",
+      jobTitle: "Full Stack Web Developer",
+      description:
+        "Full Stack Developer specializzato in .NET, Blazor e React per PMI nel Veneto orientale. Sviluppo software su misura, web app e soluzioni Industria 4.0.",
+      knowsAbout: [".NET", "Blazor", "C#", "React", "Next.js", "Azure", "PostgreSQL", "Docker", "Node.js", "TypeScript"],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Portogruaro",
+        addressRegion: "VE",
+        postalCode: "30026",
+        addressCountry: "IT",
+      },
+      sameAs: [
+        "https://www.linkedin.com/in/mattiavalerio/",
+        "https://github.com/MattiaValerio",
+      ],
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -121,6 +157,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it" className="dark" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
+        />
+      </head>
       <body className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased`}>
         <div className="grid-bg" />
         <div className="noise" />
