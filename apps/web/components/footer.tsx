@@ -46,19 +46,11 @@ export function Footer() {
           Mattia Valerio · Portogruaro (VE) 30026 · Veneto, Italia
         </address>
         <a
-          href="tel:+39XXXXXXXXXX"
-          style={{ color: "inherit", textDecoration: "none" }}
-          aria-label="Telefono"
-        >
-          +39 XXX XXX XXXX
-        </a>
-        <a
           href="mailto:mattiavalerio.dev@gmail.com"
           style={{ color: "inherit", textDecoration: "none" }}
         >
           mattiavalerio.dev@gmail.com
         </a>
-        <span>P.IVA IT00000000000</span>
       </div>
 
       <style>{`
