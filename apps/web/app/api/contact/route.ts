@@ -10,11 +10,12 @@ export async function POST(req: Request) {
     }
 
     const apiKey = process.env.RESEND_API_KEY;
-    const from = process.env.RESEND_FROM_EMAIL;
-    const to = process.env.RESEND_TO_EMAIL;
+    const from = process.env.RESEND_FROM_EMAIL ?? "contact@mattiavalerio.dev";
+    const to =
+      process.env.RESEND_TO_EMAIL ?? "mattiavalerio.dev@gmail.com";
 
-    if (!apiKey || !from || !to) {
-      console.error("Contact route is missing Resend configuration");
+    if (!apiKey) {
+      console.error("Contact route is missing RESEND_API_KEY");
       return NextResponse.json({ error: "Errore server" }, { status: 500 });
     }
 
