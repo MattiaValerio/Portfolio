@@ -35,6 +35,12 @@ export function Contact({ copy }: ContactProps) {
       return;
     }
 
+    const emailInput = form.elements.namedItem("email") as HTMLInputElement;
+    if (!emailInput.validity.valid) {
+      emailInput.reportValidity();
+      return;
+    }
+
     setStatus("loading");
     try {
       const response = await fetch("/api/contact", {
