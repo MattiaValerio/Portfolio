@@ -10,7 +10,7 @@ export function Hero({
   identity: PortfolioDictionary["identity"];
 }) {
   return (
-    <section className={styles.hero} id="top">
+    <section className={styles.hero}>
       <div className={styles.heroCopy}>
         <h1>{identity.firstName}</h1>
         <h2>{identity.lastName}</h2>

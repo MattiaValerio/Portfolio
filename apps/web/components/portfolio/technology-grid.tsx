@@ -32,12 +32,14 @@ export function TechnologyGrid({
             style={{ "--delay": `${index * 0.16}s` } as CSSProperties}
           >
             <span className={styles.technologyMark} aria-hidden="true">
-              {mounted && iconName ? (
-                <StackIcon name={iconName} variant={iconVariant} />
-              ) : (
+              {!iconName ? (
                 <span className={styles.technologyFallback}>
                   {technologyLabel.slice(0, 2)}
                 </span>
+              ) : mounted ? (
+                <StackIcon name={iconName} variant={iconVariant} />
+              ) : (
+                <span className={styles.technologyPlaceholder} />
               )}
             </span>
             <b>{technologyLabel}</b>
