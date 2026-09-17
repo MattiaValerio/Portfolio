@@ -92,6 +92,29 @@ export type PortfolioDictionary = {
     languages: readonly { language: string; proficiency: string }[];
   };
   statement: { label: string; text: string };
+  contact: {
+    sectionTitle: string;
+    linksLabel: string;
+    formTitle: string;
+    introduction: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    submit: string;
+    loading: string;
+    success: string;
+    missingFields: string;
+    deliveryFailure: string;
+    serverError: string;
+    directEmailPrefix: string;
+  };
+  footer: {
+    location: string;
+    backToTop: string;
+  };
   metadata: {
     title: string;
     description: string;
@@ -389,6 +412,32 @@ export const dictionaries = {
       label: "Come la vedo",
       text: "Se un lavoro si fa a mano due volte, può farlo il software.",
     },
+    contact: {
+      sectionTitle: "Contatti",
+      linksLabel: "Contatti diretti",
+      formTitle: "Scrivimi due righe",
+      introduction:
+        "Descrivi il processo o il progetto che hai in mente: rispondo entro un giorno lavorativo.",
+      nameLabel: "Nome",
+      namePlaceholder: "Mario Rossi",
+      emailLabel: "Email",
+      emailPlaceholder: "nome@azienda.it",
+      messageLabel: "Messaggio",
+      messagePlaceholder: "Cosa ti serve automatizzare?",
+      submit: "Invia messaggio",
+      loading: "Invio in corso…",
+      success: "Messaggio inviato. Ti risponderò presto.",
+      missingFields: "Compila nome, email e messaggio.",
+      deliveryFailure:
+        "Invio non riuscito. Riprova o scrivimi direttamente via email.",
+      serverError:
+        "Si è verificato un errore. Riprova o scrivimi direttamente via email.",
+      directEmailPrefix: "Oppure scrivimi direttamente a",
+    },
+    footer: {
+      location: "Portogruaro · Italia",
+      backToTop: "Torna su",
+    },
     metadata: {
       title: "Backend Developer TypeScript",
       description:
@@ -661,6 +710,30 @@ export const dictionaries = {
     statement: {
       label: "How I see it",
       text: "If a job gets done by hand twice, software can do it.",
+    },
+    contact: {
+      sectionTitle: "Contact",
+      linksLabel: "Direct contact details",
+      formTitle: "Drop me a line",
+      introduction:
+        "Describe the process or project you have in mind: I reply within one working day.",
+      nameLabel: "Name",
+      namePlaceholder: "Jane Doe",
+      emailLabel: "Email",
+      emailPlaceholder: "name@company.com",
+      messageLabel: "Message",
+      messagePlaceholder: "What needs automating?",
+      submit: "Send message",
+      loading: "Sending…",
+      success: "Message sent. I’ll get back to you soon.",
+      missingFields: "Complete your name, email and message.",
+      deliveryFailure: "Delivery failed. Try again or email me directly.",
+      serverError: "Something went wrong. Try again or email me directly.",
+      directEmailPrefix: "Or email me directly at",
+    },
+    footer: {
+      location: "Portogruaro · Italy",
+      backToTop: "Back to top",
     },
     metadata: {
       title: "TypeScript Backend Developer",

@@ -10,6 +10,8 @@ import { Education } from "@/components/portfolio/education-section";
 import { Experience } from "@/components/portfolio/experience-section";
 import { Statement } from "@/components/portfolio/statement-section";
 import { Testimonials } from "@/components/portfolio/testimonials-section";
+import { Contact } from "@/components/portfolio/contact";
+import { Footer } from "@/components/portfolio/footer";
 import { dictionaries, isLocale, locales, type Locale } from "@/lib/i18n";
 import styles from "@/components/portfolio/portfolio-shell.module.css";
 
@@ -44,7 +46,7 @@ export default async function LocalizedHome({ params }: PageProps) {
   const copy = dictionaries[locale];
 
   return (
-    <main className={styles.shell}>
+    <main className={styles.shell} id="top">
       <Header locale={locale} copy={copy} />
       <Hero copy={copy.hero} identity={copy.identity} />
       <About copy={copy.about} />
@@ -54,6 +56,8 @@ export default async function LocalizedHome({ params }: PageProps) {
       <Testimonials copy={copy.testimonials} />
       <Education copy={copy.credentials} />
       <Statement copy={copy.statement} />
+      <Contact copy={copy.contact} />
+      <Footer copy={copy.footer} />
     </main>
   );
 }
