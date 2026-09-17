@@ -57,10 +57,34 @@ export type PortfolioDictionary = {
       description: string;
     }[];
   };
+  projects: ProjectsDictionary;
   metadata: {
     title: string;
     description: string;
   };
+};
+
+export type ProjectContent = {
+  title: string;
+  context: string;
+  status: string;
+  description: string;
+  technologies: readonly string[];
+};
+
+export type ProjectsDictionary = {
+  heading: string;
+  technologiesLabel: string;
+  featured: ProjectContent & {
+    currentWorkLabel: string;
+    currentWork: string;
+  };
+  items: readonly [
+    ProjectContent,
+    ProjectContent,
+    ProjectContent,
+    ProjectContent,
+  ];
 };
 
 export const dictionaries = {
@@ -143,6 +167,69 @@ export const dictionaries = {
         {
           title: "Frontend",
           description: "Next.js, React, TypeScript",
+        },
+      ],
+    },
+    projects: {
+      heading: "Progetti",
+      technologiesLabel: "Tecnologie",
+      featured: {
+        title: "Automazione documentale per ERP",
+        context: "Pipeline AI · cliente anonimo",
+        status: "In produzione",
+        description:
+          "Oltre 30 clienti inviano ordini, DDT e fatture ognuno con il proprio layout. Il sistema li legge, li controlla e li registra nel gestionale; i casi dubbi passano a una coda che una persona approva in pochi secondi.",
+        currentWorkLabel: "Sto lavorando a:",
+        currentWork:
+          "un chatbot che risponde in linguaggio naturale sui dati del gestionale.",
+        technologies: [
+          "Fastify",
+          "BullMQ",
+          "Redis",
+          "PostgreSQL",
+          "SQL Server",
+          "MinIO",
+          "Mastra",
+        ],
+      },
+      items: [
+        {
+          title: "SaaS immobiliare",
+          context: "Piattaforma multi-tenant",
+          status: "Venduta",
+          description:
+            "Le agenzie raccolgono richieste e gestiscono immobili in un unico posto; un agente AI stima il valore di una casa a partire da dati di mercato e immobili simili.",
+          technologies: [
+            "Fastify",
+            "Kysely",
+            "PostgreSQL",
+            "Mastra",
+            "Next.js",
+          ],
+        },
+        {
+          title: "Portale rivenditori",
+          context: "Contratti e firma digitale",
+          status: "In produzione",
+          description:
+            "I contratti di noleggio restano allineati al gestionale centrale, si firmano dal telefono e i PDF si generano da soli.",
+          technologies: ["NestJS", "PostgreSQL", "Docker Compose"],
+        },
+        {
+          title: "Developer OS",
+          context: "Progetto personale",
+          status: "Uso interno",
+          description:
+            "Un assistente AI che ricorda il contesto dei miei progetti e lavora da Slack su più repository.",
+          technologies: ["Mastra", "GraphRAG", "Redis"],
+        },
+        {
+          title: "Business OS",
+          context: "Progetto personale",
+          status: "Uso interno",
+          description:
+            "Preventivi, analisi dei progetti e conti tenuti in ordine da un gruppo di agenti che parlano tra loro.",
+          technologies: ["Mastra", "Turborepo", "PostgreSQL"],
         },
       ],
     },
@@ -231,6 +318,69 @@ export const dictionaries = {
         {
           title: "Frontend",
           description: "Next.js, React, TypeScript",
+        },
+      ],
+    },
+    projects: {
+      heading: "Projects",
+      technologiesLabel: "Technologies",
+      featured: {
+        title: "Document automation for an ERP",
+        context: "AI pipeline · client anonymised",
+        status: "In production",
+        description:
+          "Over 30 clients send orders, delivery notes and invoices, each in their own layout. The system reads, checks and files them in the ERP; uncertain cases go to a queue a person approves in seconds.",
+        currentWorkLabel: "Working on:",
+        currentWork:
+          "a chatbot that answers questions on ERP data in plain language.",
+        technologies: [
+          "Fastify",
+          "BullMQ",
+          "Redis",
+          "PostgreSQL",
+          "SQL Server",
+          "MinIO",
+          "Mastra",
+        ],
+      },
+      items: [
+        {
+          title: "Real-estate SaaS",
+          context: "Multi-tenant platform",
+          status: "Sold",
+          description:
+            "Agencies collect enquiries and manage properties in one place; an AI agent estimates a home's value from market data and comparable properties.",
+          technologies: [
+            "Fastify",
+            "Kysely",
+            "PostgreSQL",
+            "Mastra",
+            "Next.js",
+          ],
+        },
+        {
+          title: "Dealer portal",
+          context: "Contracts and e-signature",
+          status: "In production",
+          description:
+            "Rental contracts stay aligned with the central ERP, are signed from a phone and the PDFs generate themselves.",
+          technologies: ["NestJS", "PostgreSQL", "Docker Compose"],
+        },
+        {
+          title: "Developer OS",
+          context: "Personal project",
+          status: "Internal use",
+          description:
+            "An AI assistant that remembers project context and works from Slack across several repositories.",
+          technologies: ["Mastra", "GraphRAG", "Redis"],
+        },
+        {
+          title: "Business OS",
+          context: "Personal project",
+          status: "Internal use",
+          description:
+            "Quotes, project analysis and finances kept in order by a set of agents talking to each other.",
+          technologies: ["Mastra", "Turborepo", "PostgreSQL"],
         },
       ],
     },

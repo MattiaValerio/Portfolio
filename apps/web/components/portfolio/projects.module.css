@@ -1,0 +1,156 @@
+.section {
+  border-bottom: 2px solid var(--portfolio-line);
+  padding: clamp(58px, 7vw, 96px) clamp(30px, 5vw, 80px);
+  scroll-margin-top: 56px;
+}
+
+.titleRow {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 34px;
+}
+
+.titleRow h2 {
+  color: var(--portfolio-accent);
+  font-family: var(--font-geist-pixel-square), monospace;
+  font-size: clamp(24px, 2.5vw, 34px);
+  letter-spacing: 0.04em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.titleRow span {
+  background: var(--portfolio-hairline);
+  flex: 1;
+  height: 2px;
+}
+
+.featured {
+  background: var(--portfolio-surface);
+  border-top: 6px solid var(--portfolio-accent);
+  margin-bottom: 24px;
+  padding: clamp(28px, 3vw, 42px);
+}
+
+.cardHeader {
+  align-items: baseline;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.cardHeader h3 {
+  font-family: var(--font-geist-pixel-square), monospace;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.featured .cardHeader h3 {
+  font-size: 17px;
+}
+
+.status {
+  color: var(--portfolio-accent);
+  flex: 0 0 auto;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.grid .card:first-child .status {
+  background: var(--portfolio-accent);
+  color: var(--portfolio-bg);
+  padding: 3px 8px;
+}
+
+.context {
+  color: var(--portfolio-muted);
+  font-size: 12px;
+  margin: 5px 0 0;
+}
+
+.description,
+.currentWork {
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+.currentWork strong {
+  font-weight: 750;
+}
+
+.technologies {
+  border-top: 1px solid var(--portfolio-hairline);
+  color: var(--portfolio-muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 11.5px;
+  gap: 5px 0;
+  list-style: none;
+  margin: 0;
+  padding: 12px 0 0;
+}
+
+.technologies li:not(:last-child)::after {
+  content: " · ";
+  white-space: pre;
+}
+
+.grid {
+  background: var(--portfolio-hairline);
+  border: 1px solid var(--portfolio-hairline);
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card {
+  background: var(--portfolio-bg);
+  display: flex;
+  flex-direction: column;
+  padding: clamp(24px, 3vw, 38px);
+}
+
+.card .description {
+  flex: 1;
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding: 42px 18px;
+  }
+
+  .titleRow {
+    margin-bottom: 26px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cardHeader {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 390px) {
+  .featured,
+  .card {
+    padding: 24px 20px;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    scroll-behavior: auto;
+  }
+}
