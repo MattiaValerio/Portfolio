@@ -1,21 +1,10 @@
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import type { Metadata } from "next";
+import { headers } from "next/headers";
+import { GeistSans } from "geist/font/sans";
+import { GeistPixelSquare } from "geist/font/pixel";
 
 import "@workspace/ui/globals.css";
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-  display: "swap",
-  weight: ["300", "400", "500", "700"],
-});
+import { Providers } from "@/components/providers";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mattiavalerio.dev"),
@@ -75,7 +64,9 @@ export const metadata: Metadata = {
       { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
       { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
     shortcut: ["/favicon.ico"],
   },
   robots: {
@@ -134,7 +125,18 @@ const siteSchema = {
       jobTitle: "Full Stack Web Developer",
       description:
         "Full Stack Developer specializzato in .NET, Blazor e React per PMI nel Veneto orientale. Sviluppo software su misura, web app e soluzioni Industria 4.0.",
-      knowsAbout: [".NET", "Blazor", "C#", "React", "Next.js", "Azure", "PostgreSQL", "Docker", "Node.js", "TypeScript"],
+      knowsAbout: [
+        ".NET",
+        "Blazor",
+        "C#",
+        "React",
+        "Next.js",
+        "Azure",
+        "PostgreSQL",
+        "Docker",
+        "Node.js",
+        "TypeScript",
+      ],
       address: {
         "@type": "PostalAddress",
         addressLocality: "Portogruaro",
@@ -150,23 +152,25 @@ const siteSchema = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale =
+    (await headers()).get("x-portfolio-locale") === "en" ? "en" : "it";
   return (
-    <html lang="it" className="dark" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
         />
       </head>
-      <body className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased`}>
-        <div className="grid-bg" />
-        <div className="noise" />
-        {children}
+      <body
+        className={`${GeistSans.variable} ${GeistPixelSquare.variable} antialiased`}
+      >
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
