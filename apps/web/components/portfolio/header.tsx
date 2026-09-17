@@ -78,7 +78,11 @@ export function Header({
           type="button"
           onClick={() => setTheme(dark ? "light" : "dark")}
           aria-label={
-            dark ? copy.preferences.useLight : copy.preferences.useDark
+            mounted
+              ? dark
+                ? copy.preferences.useLight
+                : copy.preferences.useDark
+              : copy.preferences.theme
           }
         >
           <span className={styles.srOnly}>{copy.preferences.theme}: </span>

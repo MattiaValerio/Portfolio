@@ -110,6 +110,20 @@
   margin: 0;
   text-transform: uppercase;
 }
+.typedName {
+  min-height: clamp(132px, 15.6vw, 238px);
+}
+.typingCursor {
+  animation: cursorBlink 0.7s steps(1, end) infinite;
+  background: var(--portfolio-accent);
+  display: inline-block;
+  height: 0.78em;
+  margin-left: 0.08em;
+  width: 0.075em;
+}
+.reducedMotionName {
+  display: none;
+}
 .hero h1 {
   font-size: clamp(76px, 10vw, 150px);
   letter-spacing: -0.055em;
@@ -141,28 +155,40 @@
   margin-top: 30px;
 }
 .technologies {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  min-height: clamp(390px, 41vw, 520px);
+  position: relative;
   width: 100%;
 }
 .technologies > div {
   align-items: center;
-  animation: float 5s ease-in-out infinite;
-  animation-delay: var(--delay);
-  aspect-ratio: 1;
-  border: 1px solid var(--portfolio-hairline);
+  animation: iconEntrance 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--entrance-delay);
   display: flex;
-  flex-direction: column;
-  gap: clamp(8px, 1vw, 14px);
+  height: clamp(66px, 6.6vw, 96px);
   justify-content: center;
+  left: var(--x);
+  position: absolute;
+  top: var(--y);
+  translate: -50% -50%;
+  width: clamp(66px, 6.6vw, 96px);
 }
 .technologyMark {
   align-items: center;
+  animation: float 5s ease-in-out infinite;
+  animation-delay: var(--float-delay);
   display: flex;
-  height: clamp(30px, 3.2vw, 48px);
+  height: clamp(52px, 5vw, 76px);
   justify-content: center;
-  width: clamp(30px, 3.2vw, 48px);
+  transition:
+    filter 180ms ease,
+    transform 180ms ease;
+  width: clamp(52px, 5vw, 76px);
+}
+.technologies > div:hover .technologyMark {
+  filter: drop-shadow(
+    0 8px 10px color-mix(in srgb, var(--portfolio-ink) 18%, transparent)
+  );
+  transform: scale(1.16) rotate(-3deg);
 }
 .technologyFallback {
   align-items: center;
@@ -179,9 +205,6 @@
 .technologyPlaceholder {
   height: 100%;
   width: 100%;
-}
-.technologies b {
-  font-size: 11px;
 }
 .section {
   border-bottom: 2px solid var(--portfolio-line);
@@ -416,7 +439,22 @@
 }
 @keyframes float {
   50% {
-    transform: translateY(-5px);
+    translate: 0 -6px;
+  }
+}
+@keyframes iconEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.82);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes cursorBlink {
+  50% {
+    opacity: 0;
   }
 }
 @media (max-width: 980px) and (min-width: 761px) {
@@ -431,10 +469,15 @@
     grid-template-columns: minmax(0, 1fr) 260px;
   }
   .technologies {
-    gap: 6px;
+    min-height: 390px;
   }
-  .technologies b {
-    font-size: 9px;
+  .technologies > div {
+    height: 64px;
+    width: 64px;
+  }
+  .technologyMark {
+    height: 54px;
+    width: 54px;
   }
   .skills {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -468,18 +511,22 @@
     padding: 14px 4px;
   }
   .hero {
-    display: block;
+    display: flex;
+    flex-direction: column;
     min-height: calc(100svh - 56px);
     padding: 36px 18px 30px;
     border-left-width: 8px;
   }
   .hero h1 {
-    font-size: 40px;
-    margin-bottom: 4px;
+    font-size: clamp(68px, 20vw, 82px);
+    margin-bottom: 8px;
   }
   .hero h2 {
-    font-size: 24px;
+    font-size: clamp(40px, 12vw, 50px);
     margin-bottom: 20px;
+  }
+  .typedName {
+    min-height: 130px;
   }
   .role {
     font-size: 11px;
@@ -491,11 +538,19 @@
     margin-top: 18px;
   }
   .technologies {
-    gap: 6px;
-    margin-top: 22px;
+    flex: 1;
+    min-height: 310px;
+    margin-top: 84px;
   }
-  .technologies b {
-    font-size: 9px;
+  .technologies > div {
+    height: clamp(58px, 8.5svh, 76px);
+    left: var(--mobile-x);
+    top: var(--mobile-y);
+    width: clamp(58px, 8.5svh, 76px);
+  }
+  .technologyMark {
+    height: clamp(48px, 7.2svh, 64px);
+    width: clamp(48px, 7.2svh, 64px);
   }
   .section {
     padding: 30px 18px;
@@ -535,11 +590,18 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .shell,
   .shell *,
   .shell *::before,
   .shell *::after {
     animation: none !important;
     scroll-behavior: auto !important;
     transition: none !important;
+  }
+  .typedText {
+    display: none;
+  }
+  .reducedMotionName {
+    display: inline;
   }
 }

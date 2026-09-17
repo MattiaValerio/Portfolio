@@ -2,7 +2,6 @@ import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     const { name, email, message } = await req.json();
 
@@ -10,9 +9,20 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Campi mancanti" }, { status: 400 });
     }
 
+    const apiKey = process.env.RESEND_API_KEY;
+    const from = process.env.RESEND_FROM_EMAIL;
+    const to = process.env.RESEND_TO_EMAIL;
+
+    if (!apiKey || !from || !to) {
+      console.error("Contact route is missing Resend configuration");
+      return NextResponse.json({ error: "Errore server" }, { status: 500 });
+    }
+
+    const resend = new Resend(apiKey);
+
     const { error } = await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL!,
-      to: process.env.RESEND_TO_EMAIL!,
+      from,
+      to,
       replyTo: email,
       subject: `Contatto dal portfolio — ${name}`,
       text: `Nome: ${name}\nEmail: ${email}\n\nMessaggio:\n${message}`,

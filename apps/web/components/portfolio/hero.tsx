@@ -1,5 +1,6 @@
 import type { PortfolioDictionary } from "@/lib/i18n";
 import { TechnologyGrid } from "./technology-grid";
+import { TypedName } from "./typed-name";
 import styles from "./portfolio-shell.module.css";
 
 export function Hero({
@@ -12,8 +13,10 @@ export function Hero({
   return (
     <section className={styles.hero}>
       <div className={styles.heroCopy}>
-        <h1>{identity.firstName}</h1>
-        <h2>{identity.lastName}</h2>
+        <TypedName
+          firstName={identity.firstName}
+          lastName={identity.lastName}
+        />
         <p className={styles.role}>{copy.role}</p>
         <div className={styles.meta}>
           <span>{copy.availability}</span>
