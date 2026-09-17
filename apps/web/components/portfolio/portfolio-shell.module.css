@@ -583,13 +583,21 @@
     flex-direction: column;
   }
   .footer {
+    display: grid;
     gap: 8px;
     font-size: clamp(8px, 2.4vw, 10px);
+    grid-template-columns: auto auto auto;
     letter-spacing: 0.08em;
     padding: 24px 18px 96px;
   }
   .footer > * {
     white-space: nowrap;
+  }
+  .footer > :nth-child(2) {
+    text-align: center;
+  }
+  .footer > :last-child {
+    text-align: right;
   }
 }
 @media (prefers-reduced-motion: reduce) {
