@@ -588,7 +588,7 @@
     font-size: clamp(8px, 2.4vw, 10px);
     grid-template-columns: auto auto auto;
     letter-spacing: 0.08em;
-    padding: 24px 18px 96px;
+    padding: 24px 18px;
   }
   .footer > * {
     white-space: nowrap;
