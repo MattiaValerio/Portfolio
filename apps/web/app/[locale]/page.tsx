@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 
 import { Header } from "@/components/portfolio/header";
 import { Hero } from "@/components/portfolio/hero";
+import { About } from "@/components/portfolio/about";
+import { Skills } from "@/components/portfolio/skills";
 import { dictionaries, isLocale, locales, type Locale } from "@/lib/i18n";
 import styles from "@/components/portfolio/portfolio-shell.module.css";
 
@@ -40,6 +42,8 @@ export default async function LocalizedHome({ params }: PageProps) {
     <main className={styles.shell}>
       <Header locale={locale} copy={copy} />
       <Hero copy={copy.hero} identity={copy.identity} />
+      <About copy={copy.about} />
+      <Skills copy={copy.skills} />
     </main>
   );
 }

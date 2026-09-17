@@ -46,6 +46,17 @@ export type PortfolioDictionary = {
     technologies: string;
     technologyLabels: readonly { id: TechnologyId; label: string }[];
   };
+  about: {
+    title: string;
+    paragraphs: readonly [string, string];
+  };
+  skills: {
+    title: string;
+    groups: readonly {
+      title: string;
+      description: string;
+    }[];
+  };
   metadata: {
     title: string;
     description: string;
@@ -98,6 +109,43 @@ export const dictionaries = {
         { id: "zod", label: "Zod" },
       ],
     },
+    about: {
+      title: "About",
+      paragraphs: [
+        "Sono uno sviluppatore backend TypeScript. Progetto e realizzo servizi, integrazioni e agenti AI che girano in produzione ogni giorno, non in demo.",
+        "In questo periodo mi concentro sull’automazione dei processi aziendali: sistemi che leggono documenti, tengono allineati i gestionali e lasciano alle persone solo le decisioni. Seguo i progetti dall’architettura al deploy e resto a manutenerli.",
+      ],
+    },
+    skills: {
+      title: "Competenze",
+      groups: [
+        {
+          title: "Backend",
+          description:
+            "TypeScript, Node.js, Fastify, NestJS, API REST, DDD, Result/Option",
+        },
+        {
+          title: "AI & Agenti",
+          description: "Mastra, OpenAI, Anthropic, LLM vision, OCR, GraphRAG",
+        },
+        {
+          title: "Dati & code",
+          description: "PostgreSQL, Kysely, Redis, BullMQ, SQL Server, MinIO",
+        },
+        {
+          title: "DevOps",
+          description: "Docker, Docker Compose, Coolify, VPS, Turborepo, PNPM",
+        },
+        {
+          title: "Testing",
+          description: "Vitest, validazione con Zod, API tipizzate end-to-end",
+        },
+        {
+          title: "Frontend",
+          description: "Next.js, React, TypeScript",
+        },
+      ],
+    },
     metadata: {
       title: "Backend Developer TypeScript",
       description:
@@ -147,6 +195,43 @@ export const dictionaries = {
         { id: "openai", label: "OpenAI" },
         { id: "turborepo", label: "Turborepo" },
         { id: "zod", label: "Zod" },
+      ],
+    },
+    about: {
+      title: "About",
+      paragraphs: [
+        "I’m a TypeScript backend developer. I design and build services, integrations and AI agents that run in production every day, not in demos.",
+        "Right now I focus on automating business processes: systems that read documents, keep business software in sync and leave only the decisions to people. I follow projects from architecture to deploy, and stay on to maintain them.",
+      ],
+    },
+    skills: {
+      title: "Skills",
+      groups: [
+        {
+          title: "Backend",
+          description:
+            "TypeScript, Node.js, Fastify, NestJS, REST APIs, DDD, Result/Option",
+        },
+        {
+          title: "AI & Agents",
+          description: "Mastra, OpenAI, Anthropic, LLM vision, OCR, GraphRAG",
+        },
+        {
+          title: "Data & Queues",
+          description: "PostgreSQL, Kysely, Redis, BullMQ, SQL Server, MinIO",
+        },
+        {
+          title: "DevOps",
+          description: "Docker, Docker Compose, Coolify, VPS, Turborepo, PNPM",
+        },
+        {
+          title: "Testing",
+          description: "Vitest, Zod validation, end-to-end typed APIs",
+        },
+        {
+          title: "Frontend",
+          description: "Next.js, React, TypeScript",
+        },
       ],
     },
     metadata: {
