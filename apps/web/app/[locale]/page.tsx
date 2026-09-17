@@ -6,6 +6,10 @@ import { Hero } from "@/components/portfolio/hero";
 import { About } from "@/components/portfolio/about";
 import { Projects } from "@/components/portfolio/projects";
 import { Skills } from "@/components/portfolio/skills";
+import { Education } from "@/components/portfolio/education-section";
+import { Experience } from "@/components/portfolio/experience-section";
+import { Statement } from "@/components/portfolio/statement-section";
+import { Testimonials } from "@/components/portfolio/testimonials-section";
 import { dictionaries, isLocale, locales, type Locale } from "@/lib/i18n";
 import styles from "@/components/portfolio/portfolio-shell.module.css";
 
@@ -46,6 +50,10 @@ export default async function LocalizedHome({ params }: PageProps) {
       <About copy={copy.about} />
       <Skills copy={copy.skills} />
       <Projects copy={copy.projects} />
+      <Experience copy={copy.experience} />
+      <Testimonials copy={copy.testimonials} />
+      <Education copy={copy.credentials} />
+      <Statement copy={copy.statement} />
     </main>
   );
 }

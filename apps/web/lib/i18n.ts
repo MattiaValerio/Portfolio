@@ -58,6 +58,40 @@ export type PortfolioDictionary = {
     }[];
   };
   projects: ProjectsDictionary;
+  experience: {
+    title: string;
+    roles: readonly {
+      organization: string;
+      role: string;
+      period: string;
+      startDate: string;
+      endDate?: string;
+      accomplishments: readonly string[];
+    }[];
+  };
+  testimonials: {
+    title: string;
+    items: readonly {
+      quote: string;
+      name: string;
+      role: string;
+      initials: string;
+    }[];
+  };
+  credentials: {
+    title: string;
+    education: readonly {
+      institution: string;
+      qualification: string;
+      period: string;
+      startDate: string;
+      endDate: string;
+      score: string;
+      topics: readonly { label: string; detail: string }[];
+    }[];
+    languages: readonly { language: string; proficiency: string }[];
+  };
+  statement: { label: string; text: string };
   metadata: {
     title: string;
     description: string;
@@ -233,6 +267,128 @@ export const dictionaries = {
         },
       ],
     },
+    experience: {
+      title: "Esperienza",
+      roles: [
+        {
+          organization: "Proconsulting · Pordenone",
+          role: "Full Stack Developer",
+          period: "2022 — oggi",
+          startDate: "2022",
+          accomplishments: [
+            "Progettazione e sviluppo dei servizi backend del gestionale ERP: API REST tipizzate in TypeScript su Fastify, con struttura Route → Service → Repository e gestione esplicita degli errori.",
+            "Schema PostgreSQL, migrazioni e query tipizzate con Kysely, più sincronizzazione con SQL Server.",
+            "Architettura a eventi con code Redis/BullMQ e worker dedicati.",
+            "Pipeline AI in produzione per oltre 30 clienti, con validazione e revisione umana.",
+            "Servizi Docker Compose, deploy Coolify, storage MinIO e monorepo Turborepo.",
+            "Integrazione con macchine e sensori per Industria 4.0 e 5.0.",
+          ],
+        },
+        {
+          organization: "Progetti propri e clienti diretti",
+          role: "Sviluppatore freelance",
+          period: "2022 — oggi",
+          startDate: "2022",
+          accomplishments: [
+            "Progetti portati dalla prima chiamata al deploy, con manutenzione successiva.",
+            "Costruzione di un SaaS multi-tenant e di un portale sincronizzato con un gestionale centrale.",
+            "Creazione di strumenti e agenti AI riutilizzabili.",
+          ],
+        },
+        {
+          organization: "Primi progetti",
+          role: "Junior Web Developer",
+          period: "2020 — 2022",
+          startDate: "2020",
+          endDate: "2022",
+          accomplishments: [
+            "Fondamentali full stack e primi contributi a progetti reali.",
+            "Siti e piccoli applicativi per attività commerciali locali.",
+            "Requisiti tradotti da termini non tecnici in scelte di sviluppo.",
+          ],
+        },
+      ],
+    },
+    testimonials: {
+      title: "Referenze",
+      items: [
+        {
+          quote:
+            "Mattia ha una capacità rara: capisce subito le esigenze di produzione e le traduce in soluzioni software che funzionano davvero sul campo. Proattivo, preciso e mai approssimativo.",
+          name: "Marco B.",
+          role: "Project Manager · Software House PN",
+          initials: "MB",
+        },
+        {
+          quote:
+            "Ha gestito da solo intere feature del nostro ERP con una maturità tecnica sopra la media. Quando dice «ci penso io», ci si può fidare.",
+          name: "Sara T.",
+          role: "CTO · Settore manifatturiero",
+          initials: "ST",
+        },
+        {
+          quote:
+            "Non è solo un developer: è qualcuno che si fa carico del problema. Lavora con un’attenzione ai dettagli che raramente trovi in profili della sua esperienza.",
+          name: "Luca M.",
+          role: "Senior Developer · Team interno",
+          initials: "LM",
+        },
+      ],
+    },
+    credentials: {
+      title: "Formazione e lingue",
+      education: [
+        {
+          institution: "Fondazione ITS Alto Adriatico",
+          qualification: "Cloud Developer",
+          period: "ott 2022 – lug 2024",
+          startDate: "2022-10",
+          endDate: "2024-07",
+          score: "Votazione 95/100",
+          topics: [
+            { label: "Coding", detail: "C#, .NET, Python" },
+            { label: "DB", detail: "Postgres/MSSQL, DB NoSQL" },
+            {
+              label: "Sviluppo web",
+              detail: "HTML5, CSS, JavaScript, Node.js",
+            },
+            { label: "Deployment", detail: "Docker, Kubernetes" },
+            {
+              label: "Cloud",
+              detail: "AWS, MS Azure, Hadoop/MapReduce, Elasticsearch",
+            },
+            {
+              label: "Enterprise",
+              detail:
+                "API, microservizi, UML, TDD, BDD, security by design, AI",
+            },
+          ],
+        },
+        {
+          institution: "ITIS Leonardo Da Vinci",
+          qualification: "Perito in informatica e telecomunicazioni",
+          period: "set 2016 – giu 2022",
+          startDate: "2016-09",
+          endDate: "2022-06",
+          score: "Votazione 80",
+          topics: [
+            {
+              label: "Argomenti",
+              detail:
+                "Informatica e telecomunicazioni: programmazione a oggetti, reti e fondamenti di sistemi.",
+            },
+          ],
+        },
+      ],
+      languages: [
+        { language: "Italiano", proficiency: "madrelingua" },
+        { language: "Inglese", proficiency: "tecnico, scritto e parlato" },
+      ],
+    },
+    statement: {
+      label: "Come la vedo",
+      text: "Se un lavoro si fa a mano due volte, può farlo il software.",
+    },
     metadata: {
       title: "Backend Developer TypeScript",
       description:
@@ -383,6 +539,128 @@ export const dictionaries = {
           technologies: ["Mastra", "Turborepo", "PostgreSQL"],
         },
       ],
+    },
+    experience: {
+      title: "Experience",
+      roles: [
+        {
+          organization: "Proconsulting · Pordenone",
+          role: "Full Stack Developer",
+          period: "2022 — present",
+          startDate: "2022",
+          accomplishments: [
+            "Designed and built the ERP’s backend services: typed REST APIs in TypeScript on Fastify, with a Route → Service → Repository structure and explicit error handling.",
+            "PostgreSQL schema, migrations and typed Kysely queries, plus SQL Server synchronization.",
+            "Event-driven architecture with Redis/BullMQ queues and dedicated workers.",
+            "Production AI pipeline for over 30 clients, with validation and human review.",
+            "Docker Compose services, Coolify deployments, MinIO storage and a Turborepo monorepo.",
+            "Factory machine and sensor integrations for Industry 4.0 and 5.0.",
+          ],
+        },
+        {
+          organization: "Own products and direct clients",
+          role: "Freelance developer",
+          period: "2022 — present",
+          startDate: "2022",
+          accomplishments: [
+            "Projects run from the first call through deployment, followed by ongoing maintenance.",
+            "Built a multi-tenant SaaS and a portal synchronized with a central ERP.",
+            "Created reusable tools and AI agents.",
+          ],
+        },
+        {
+          organization: "First projects",
+          role: "Junior Web Developer",
+          period: "2020 — 2022",
+          startDate: "2020",
+          endDate: "2022",
+          accomplishments: [
+            "Full-stack fundamentals and first contributions to real projects.",
+            "Websites and small applications for local businesses.",
+            "Requirements translated from non-technical terms into development choices.",
+          ],
+        },
+      ],
+    },
+    testimonials: {
+      title: "Testimonials",
+      items: [
+        {
+          quote:
+            "Mattia has a rare ability: he immediately understands production needs and turns them into software solutions that truly work in the field. Proactive, precise and never careless.",
+          name: "Marco B.",
+          role: "Project Manager · Software House, Pordenone",
+          initials: "MB",
+        },
+        {
+          quote:
+            "He independently handled entire features of our ERP with above-average technical maturity. When he says, ‘I’ll take care of it,’ you can trust him.",
+          name: "Sara T.",
+          role: "CTO · Manufacturing sector",
+          initials: "ST",
+        },
+        {
+          quote:
+            "He is not just a developer: he is someone who takes ownership of the problem. He works with an attention to detail rarely found in people with his level of experience.",
+          name: "Luca M.",
+          role: "Senior Developer · Internal team",
+          initials: "LM",
+        },
+      ],
+    },
+    credentials: {
+      title: "Education and languages",
+      education: [
+        {
+          institution: "Fondazione ITS Alto Adriatico",
+          qualification: "Cloud Developer",
+          period: "Oct 2022 – Jul 2024",
+          startDate: "2022-10",
+          endDate: "2024-07",
+          score: "Score 95/100",
+          topics: [
+            { label: "Coding", detail: "C#, .NET, Python" },
+            { label: "Databases", detail: "Postgres/MSSQL, NoSQL databases" },
+            {
+              label: "Web development",
+              detail: "HTML5, CSS, JavaScript, Node.js",
+            },
+            { label: "Deployment", detail: "Docker, Kubernetes" },
+            {
+              label: "Cloud",
+              detail: "AWS, MS Azure, Hadoop/MapReduce, Elasticsearch",
+            },
+            {
+              label: "Enterprise",
+              detail:
+                "APIs, microservices, UML, TDD, BDD, security by design, AI",
+            },
+          ],
+        },
+        {
+          institution: "ITIS Leonardo Da Vinci",
+          qualification: "IT and telecommunications diploma",
+          period: "Sep 2016 – Jun 2022",
+          startDate: "2016-09",
+          endDate: "2022-06",
+          score: "Score 80/100",
+          topics: [
+            {
+              label: "Topics",
+              detail:
+                "IT and telecommunications: object-oriented programming, networks and systems fundamentals.",
+            },
+          ],
+        },
+      ],
+      languages: [
+        { language: "Italian", proficiency: "native" },
+        { language: "English", proficiency: "technical, written and spoken" },
+      ],
+    },
+    statement: {
+      label: "How I see it",
+      text: "If a job gets done by hand twice, software can do it.",
     },
     metadata: {
       title: "TypeScript Backend Developer",
