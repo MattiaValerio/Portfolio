@@ -9,8 +9,8 @@
 
 :root {
   /* Design system tokens */
-  --mv-accent: #e84822;
-  --mv-accent-faint: rgba(232,72,34,0.15);
+  --mv-accent: #9b72f7;
+  --mv-accent-faint: rgba(155,114,247,0.15);
   --mv-bg: #0a0a10;
   --mv-surface: #0d0d14;
   --mv-text: #e8e8f0;
@@ -51,8 +51,6 @@
 }
 
 .dark {
-  --mv-accent: #ff5a32;
-  --mv-accent-faint: rgba(255,90,50,0.15);
   --background: #0a0a10;
   --foreground: #e8e8f0;
   --card: #0d0d14;
@@ -132,7 +130,6 @@
   }
   html {
     scroll-behavior: smooth;
-    scrollbar-color: var(--mv-accent) var(--mv-bg);
   }
   body {
     @apply bg-background text-foreground;
