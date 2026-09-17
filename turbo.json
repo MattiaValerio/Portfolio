@@ -1,14 +1,21 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalEnv": [
+    "RESEND_API_KEY",
+    "RESEND_FROM_EMAIL",
+    "RESEND_TO_EMAIL"
+  ],
   "ui": "tui",
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
+      "env": ["RESEND_API_KEY", "RESEND_FROM_EMAIL", "RESEND_TO_EMAIL"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": ["^lint"],
+      "env": ["RESEND_API_KEY", "RESEND_FROM_EMAIL", "RESEND_TO_EMAIL"]
     },
     "check-types": {
       "dependsOn": ["^check-types"]

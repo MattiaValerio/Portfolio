@@ -14,6 +14,7 @@
   --mv-bg: #0a0a10;
   --mv-surface: #0d0d14;
   --mv-text: #e8e8f0;
+  --portfolio-browser-accent: #e84822;
 
   --background: oklch(0.99 0.005 240);
   --foreground: oklch(0.15 0.02 240);
@@ -51,6 +52,7 @@
 }
 
 .dark {
+  --portfolio-browser-accent: #ff5a32;
   --background: #0a0a10;
   --foreground: #e8e8f0;
   --card: #0d0d14;
@@ -130,6 +132,7 @@
   }
   html {
     scroll-behavior: smooth;
+    scrollbar-color: var(--portfolio-browser-accent) var(--mv-bg);
   }
   body {
     @apply bg-background text-foreground;
@@ -137,12 +140,12 @@
     overflow-x: hidden;
   }
   ::selection {
-    background: var(--mv-accent);
+    background: var(--portfolio-browser-accent);
     color: var(--mv-bg);
   }
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--mv-bg); }
-  ::-webkit-scrollbar-thumb { background: var(--mv-accent); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb { background: var(--portfolio-browser-accent); border-radius: 2px; }
 }
 
 /* ── DESIGN SYSTEM UTILITIES ── */
