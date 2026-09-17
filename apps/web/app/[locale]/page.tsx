@@ -13,6 +13,7 @@ import { Testimonials } from "@/components/portfolio/testimonials-section";
 import { Contact } from "@/components/portfolio/contact";
 import { Footer } from "@/components/portfolio/footer";
 import { dictionaries, isLocale, locales, type Locale } from "@/lib/i18n";
+import { buildStructuredData, localizedMetadata } from "@/lib/discovery";
 import styles from "@/components/portfolio/portfolio-shell.module.css";
 
 type PageProps = { params: Promise<{ locale: string }> };
@@ -28,15 +29,7 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
-  const copy = dictionaries[locale];
-  return {
-    title: copy.metadata.title,
-    description: copy.metadata.description,
-    alternates: {
-      canonical: `/${locale}`,
-      languages: { "it-IT": "/it", "en-US": "/en" },
-    },
-  };
+  return localizedMetadata(locale);
 }
 
 export default async function LocalizedHome({ params }: PageProps) {
@@ -47,6 +40,12 @@ export default async function LocalizedHome({ params }: PageProps) {
 
   return (
     <main className={styles.shell} id="top">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildStructuredData(locale)),
+        }}
+      />
       <Header locale={locale} copy={copy} />
       <Hero copy={copy.hero} identity={copy.identity} />
       <About copy={copy.about} />
